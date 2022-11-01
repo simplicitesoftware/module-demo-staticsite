@@ -1,6 +1,8 @@
 <template>
-  <div id="demo-products" v-show="user.login && menu.current == 'products'">
-    TODO
+  <div id="demo-products" v-show="user.authtoken && menu.current == 'products'">
+    <div v-for="product in products" v-bind:key="product.demoPrdReference" v-bind:id="`product-${product.row_id}`">
+      TODO: {{product.demoPrdReference}}
+    </div>
   </div>
 </template>
 
@@ -15,12 +17,4 @@ export default {
 </script>
 
 <style lang="less">
-#demo-products {
-  p, h1, h2, h3, h4 {
-    color: white;
-  }
-  h3 {
-    margin: 1.5rem 0;
-  }
-}
 </style>

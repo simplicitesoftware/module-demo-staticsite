@@ -1,8 +1,8 @@
 <template>
-  <nav id="demo-menu" v-show="user.login">
+  <nav id="demo-menu" v-show="user.authtoken">
     <img alt="Logo" class="clickable" title="Resize menu" @click="toggle" src="/img/logo.png"/>
     <ul>
-      <li class="menu" v-bind:class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" v-bind:key="item.name" v-bind:name="item.name" @click="click(item.name)">
+      <li v-bind:class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" v-bind:key="item.name" v-bind:name="item.name" @click="click(item.name)">
         <span class="label"><span v-bind:class="`fas fa-fw fa-${item.icon}`"></span>&nbsp;{{ item.label }}</span>
         <span class="icononly" v-bind:title="item.label"><span v-bind:class="`fas fa-fw fa-${item.icon}`"></span></span>
       </li>
@@ -42,13 +42,11 @@ export default {
     width: 12rem;
     height: 12rem;
   }
-  ul.menu {
+  ul {
     list-style-type: none;
     padding: 1rem 0 0 1rem;
-    background: white;
-    color: #1b3596;
     font-size: 1.25rem;
-    li.menu {
+    li {
       padding: .5rem 1rem;
       margin-bottom: 1rem;
       border-radius: 1rem 0 0 1rem;
@@ -59,50 +57,15 @@ export default {
         display: none;
       }
       &.disabled {
-        color: #ccc;
+        color: #C0C0C0;
         font-style: italic;
       }
       &:not(.disabled) {
         cursor: pointer;
       }
       &.selected {
-        color: white;
-        background: #112267;
-      }
-    }
-  }
-  .current {
-    color: #112267;
-    .icon {
-      text-align: center;
-      > span {
-        width: 2rem;
-        border-radius: 50%;
-        padding: .75rem;
-        background: #FFF2CF;
-        border: darken(#FFF2CF, 20%);
-        color: darken(#FFF2CF, 33%);
-      }
-    }
-    .info {
-      background: #fefaef;
-      border: solid .0625rem darken(#fefaef, 10%);
-      border-radius: 1rem;
-      padding: 1rem;
-      margin: 0 1rem 1rem 1rem;
-      text-align: center;
-      .code {
-        margin: 1rem;
-        padding: .5rem;
-        color: white;
-        background: #5777FF;
-        border-radius: .75rem;
-        font-size: .75rem;
-        font-weight: bold;
-      }
-      h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
+        color: #202020;
+        background: #F0F0F0;
       }
     }
   }
@@ -120,27 +83,19 @@ export default {
   max-width: 3.5rem;
   padding: 0;
   img {
-    width: 3rem;
-    height: 3rem;
-    margin: .25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: .5rem;
   }
   ul {
     padding: .5rem 0 0 .25rem;
-    .menu {
+    li {
       .label {
         display: none;
       }
       .icononly {
         display: block;
       }
-    }
-    .info {
-      display: none;
-    }
-  }
-  .current {
-    .info {
-      display: none;
     }
   }
 }

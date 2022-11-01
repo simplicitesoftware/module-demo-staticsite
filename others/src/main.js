@@ -24,12 +24,12 @@ const store = createStore({
       version: process.env.VUE_APP_VERSION,
       user: {},
       menu: {
-        current: 'search',
+        current: 'products',
         items: [
-          { name: "catalog", icon: "home", label: "Products°", disabled: true },
-          { name: "orders", icon: "server", label: "My orders", disabled: true },
-          { name: "contacts", icon: "file", label: "My contacts", disabled: true },
-          { name: "news", icon: "key", label: "News", disabled: true }
+          { name: "products", icon: "gift", label: "Products", selected: true },
+          { name: "orders", icon: "file", label: "My orders", disabled: true },
+          { name: "contacts", icon: "comments", label: "My contacts", disabled: true },
+          { name: "news", icon: "rss", label: "News", disabled: true }
         ]
       },
       products: [],
@@ -42,6 +42,7 @@ const store = createStore({
         app.login(params).then(user => {
           state.user = user;
           window.localStorage.setItem(LS_TOKEN_KEY, user.authtoken);
+          this.commit('products');
         }).catch(e => {
           app.error(e.message);
           if (!e.status)
@@ -66,9 +67,9 @@ const store = createStore({
     resetMenu(state) {
       state.products = {};
       for (const item of state.menu.items) {
-        const search = item.name == 'products';
-        item.disabled = !search;
-        item.selected = search;
+        const products = item.name == 'products';
+        item.disabled = !products;
+        item.selected = products;
         state.menu.current = 'products';
       }
     },
@@ -78,9 +79,11 @@ const store = createStore({
         item.selected = item.name == name;
       }
       state.menu.current = name;
+      this.commit(name);
     },
     async products(state) {
       app.getBusinessObject('DemoProduct').search().then(res => {
+        console.log(res);
         app.debug(res);
         state.products = res;
       }).catch(e => {
@@ -91,6 +94,15 @@ const store = createStore({
             this.commit('logout');
         }
       });
+    },
+    async orders(/*state*/) {
+      console.log('Orders: not implemented');
+    },
+    async contacts(/*state*/) {
+      console.log('Contacts: not implemented');
+    },
+    async news(/*state*/) {
+      console.log('News: not implemented');
     }
   }
 });
