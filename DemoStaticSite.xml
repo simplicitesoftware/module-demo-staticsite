@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplicite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<object>
+	<name>Module</name>
+	<action>upsert</action>
+	<data>
+		<mdl_name>DemoStaticSite</mdl_name>
+		<mdl_version>5</mdl_version>
+		<mdl_prefix>demo</mdl_prefix>
+		<mdl_url><![CDATA[{
+	"type": "git",
+	"origin": {
+		"uri": "https://github.com/simplicitesoftware/module-demo-staticsite.git"
+	}
+}]]></mdl_url>
+		<mdl_type>C</mdl_type>
+		<mdl_comment><![CDATA[Custom static frontend for the order management demo]]></mdl_comment>
+	</data>
+</object>
+<object>
+	<name>ObjectExternal</name>
+	<action>upsert</action>
+	<data>
+		<obe_name>DemoStaticSite</obe_name>
+		<obe_type>E</obe_type>
+		<obe_url/>
+		<obe_comment><![CDATA[Static frontend external object]]></obe_comment>
+		<obe_help/>
+		<obe_class/>
+		<obe_script_id>src/com/simplicite/extobjects/DemoStaticSite/DemoStaticSite.java</obe_script_id>
+		<obe_icon/>
+		<row_module_id.mdl_name>DemoStaticSite</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Function</name>
+	<action>upsert</action>
+	<data>
+		<fct_name>DEMO_STATIC_SITE_E</fct_name>
+		<fct_object_id.obj_type>E</fct_object_id.obj_type>
+		<fct_object_id.obj_name>DemoStaticSite</fct_object_id.obj_name>
+		<fct_function>L</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>DemoStaticSite</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Grant</name>
+	<action>upsert</action>
+	<data>
+		<grt_group_id.grp_name>DEMO_PUBLIC</grt_group_id.grp_name>
+		<grt_function_id.fct_name>DEMO_STATIC_SITE_E</grt_function_id.fct_name>
+		<grt_function_id.fct_object_id.obj_type>E</grt_function_id.fct_object_id.obj_type>
+		<grt_function_id.fct_object_id.obj_name>DemoStaticSite</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_action_id.act_name/>
+		<grt_function_id.fct_function>L</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>DemoStaticSite</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Resource</name>
+	<action>upsert</action>
+	<data>
+		<res_object>
+			<object>
+				<name>ObjectExternal</name>
+				<data>
+					<obe_name>DemoStaticSite</obe_name>
+				</data>
+			</object>
+		</res_object>
+		<res_type>SET</res_type>
+		<res_lang>ANY</res_lang>
+		<res_code>SITE</res_code>
+		<res_cached>0</res_cached>
+		<res_file>resources/ObjectExternal/DemoStaticSite/SITE.zip</res_file>
+		<res_image/>
+		<row_module_id.mdl_name>DemoStaticSite</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>TranslateExternal</name>
+	<action>upsert</action>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obe_name>DemoStaticSite</tsl_id.obe_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Static frontend</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>DemoStaticSite</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obe_name>DemoStaticSite</tsl_id.obe_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Frontend statique</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>DemoStaticSite</row_module_id.mdl_name>
+	</data>
+</object>
+</simplicite>
