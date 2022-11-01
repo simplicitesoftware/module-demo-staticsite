@@ -1,6 +1,6 @@
 <template>
   <nav id="demo-menu" v-show="user.authtoken">
-    <img alt="Logo" class="clickable" title="Resize menu" @click="toggle" src="/img/logo.png"/>
+    <img alt="Logo" class="clickable" @click="toggle" src="/img/logo.png"/>
     <ul>
       <li v-bind:class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" v-bind:key="item.name" v-bind:name="item.name" @click="click(item.name)">
         <span class="label"><span v-bind:class="`fas fa-fw fa-${item.icon}`"></span>&nbsp;{{ item.label }}</span>
@@ -29,7 +29,7 @@ export default {
 
 <style lang="less">
 #demo-menu {
-  background: #202020;
+  background: #2362A5;
   color: #FFFFFF;
   position: fixed;
   top: 0;
@@ -64,7 +64,7 @@ export default {
         cursor: pointer;
       }
       &.selected {
-        color: #202020;
+        color: #2362A5;
         background: #F0F0F0;
       }
     }
@@ -107,6 +107,9 @@ export default {
 @media screen and (max-width: 767px) {
   #demo-menu {
     .menu-minified();
+    img {
+      cursor: initial !important;
+    }
   }
 }
 </style>

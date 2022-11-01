@@ -27,9 +27,10 @@ const store = createStore({
         current: 'products',
         items: [
           { name: "products", icon: "gift", label: "Products", selected: true },
-          { name: "orders", icon: "file", label: "My orders", disabled: true },
-          { name: "contacts", icon: "comments", label: "My contacts", disabled: true },
-          { name: "news", icon: "rss", label: "News", disabled: true }
+          { name: "orders", icon: "file", label: "My orders" },
+          { name: "contacts", icon: "comments", label: "My contacts" },
+          { name: "news", icon: "rss", label: "News" },
+          { name: "logout", icon: "sign-out", label: "Sign out" }
         ]
       },
       products: [],
@@ -64,26 +65,14 @@ const store = createStore({
       state.products = [];
       state.product = {};
     },
-    resetMenu(state) {
-      state.products = {};
-      for (const item of state.menu.items) {
-        const products = item.name == 'products';
-        item.disabled = !products;
-        item.selected = products;
-        state.menu.current = 'products';
-      }
-    },
     selectMenu(state, name) {
-      for (const item of state.menu.items) {
-        item.disabled = false;
+      for (const item of state.menu.items)
         item.selected = item.name == name;
-      }
       state.menu.current = name;
       this.commit(name);
     },
     async products(state) {
       app.getBusinessObject('DemoProduct').search().then(res => {
-        console.log(res);
         app.debug(res);
         state.products = res;
       }).catch(e => {

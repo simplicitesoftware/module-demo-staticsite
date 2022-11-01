@@ -35,12 +35,10 @@ export default {
   margin-left: 16rem;
   padding: 1rem;
   color: #202020;
-  border: solid 1px red;
 }
 .page-minified() {
     margin-left: 3.5rem;
     padding: .5rem;
-    border: solid 1px blue;
 }
 #demo-body.minified {
   #demo-page {
