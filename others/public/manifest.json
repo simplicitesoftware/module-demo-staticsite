@@ -1,7 +1,7 @@
 {
   "background_color": "#FFFFFF",
   "display": "fullscreen",
-  "name": "Demo frontend",
+  "name": "Demo",
   "short_name": "Demo frontend",
   "description": "Frontend for the demo application",
   "start_url": ".",
