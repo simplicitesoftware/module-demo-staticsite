@@ -5,7 +5,7 @@
         <img v-if="n.image" :alt="n.title" :src="'data:' + n.image.mime + ';base64,' + n.image.content" class="mr-3"/>
         <div class="mdia-body">
           <h3>{{n.title}}</h3>
-          <h5>{{n.date}}</h5>
+          <h5 v-text="new Date(Date.parse(n.date.replace(' ', 'T'))).toLocaleString()"></h5>
           <p class="text-muted" v-html="n.content"></p>
         </div>
       </div>

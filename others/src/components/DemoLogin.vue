@@ -11,7 +11,7 @@
         <label for="demo-login-password">Password</label>
         <input type="password" class="form-control" id="demo-login-password" v-model="password" @keyup.enter="login" placeholder="Your password">
       </div>
-      <div class="text-right"><button id="demo-login-button" class="btn btn-primary" @click="login"><span class="fas fa-fw fa-sign-in"></span> Sign in</button></div>
+      <div class="text-right"><button id="demo-login-button" class="btn btn-primary" @click="login"><span class="fas fa-sign-in"></span> Sign in</button></div>
       <div class="text-left"><small>Version {{ version }}</small></div>
     </div>
   </div>
