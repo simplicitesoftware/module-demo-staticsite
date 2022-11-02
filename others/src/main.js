@@ -30,8 +30,7 @@ const store = createStore({
           { name: "orders", icon: "file", label: "My orders", disabled: true },
           { name: "contacts", icon: "comments", label: "My contacts", disabled: true },
           { name: "news", icon: "rss", label: "News" }/*,
-          { name: "logout", icon: "sign-out", label: "Sign out" }*/,
-          { name: "backend", icon: "gear", label: "Administration" }
+          { name: "logout", icon: "sign-out", label: "Sign out" }*/
         ]
       },
       error: '',
@@ -84,9 +83,6 @@ const store = createStore({
       state.contact = {};
       state.news = []
     },*/
-    backend() {
-      document.location.assign('/ui');
-    },
     error(state, e) {
       app.error(e);
       if (e.status) {
