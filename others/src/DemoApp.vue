@@ -26,6 +26,12 @@ export default {
 </script>
 
 <style lang="less">
+:root {
+  --demo-blue: #2362A5;
+  --demo-orange: #A57C23;
+  --demo-grey: #C0C0C0;
+  --demo-black: #202020;
+}
 #demo-body {
   .clickable {
     cursor: pointer;
@@ -34,7 +40,7 @@ export default {
 #demo-page {
   margin-left: 16rem;
   padding: 1rem;
-  color: #202020;
+  color: var(--demo-black);
 }
 .page-minified() {
     margin-left: 3.5rem;

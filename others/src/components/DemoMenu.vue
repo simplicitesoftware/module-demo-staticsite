@@ -2,9 +2,9 @@
   <nav id="demo-menu" v-show="user.authtoken">
     <img alt="Logo" class="clickable" @click="toggle" src="/img/logo.png"/>
     <ul>
-      <li v-bind:class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" v-bind:key="item.name" v-bind:name="item.name" @click="click(item.name)">
-        <span class="label"><span v-bind:class="`fas fa-fw fa-${item.icon}`"></span>&nbsp;{{ item.label }}</span>
-        <span class="icononly" v-bind:title="item.label"><span v-bind:class="`fas fa-fw fa-${item.icon}`"></span></span>
+      <li :class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" :key="item.name" :name="item.name" @click="click(item.name)">
+        <span class="label"><span :class="`fas fa-fw fa-${item.icon}`"></span>&nbsp;{{ item.label }}</span>
+        <span class="icononly" :title="item.label"><span :class="`fas fa-fw fa-${item.icon}`"></span></span>
       </li>
     </ul>
   </nav>

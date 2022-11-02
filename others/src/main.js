@@ -72,7 +72,7 @@ const store = createStore({
       this.commit(name);
     },
     async products(state) {
-      app.getBusinessObject('DemoProduct').search().then(res => {
+      app.getBusinessObject('DemoProduct').search({ demPrdAvailable: true }, { inlineDocuments: [ 'demoPrdPicture' ] }).then(res => {
         app.debug(res);
         state.products = res;
       }).catch(e => {

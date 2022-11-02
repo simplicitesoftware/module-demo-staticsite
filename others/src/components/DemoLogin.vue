@@ -60,7 +60,7 @@ export default {
   .login {
     width: 30rem;
     margin: 3rem 0 0 0;
-    background: #2362A5;
+    background: var(--demo-blue);
     color: #FFFFFF;
     border-radius: 1rem;
     padding: 2rem;
@@ -71,7 +71,7 @@ export default {
     }
     small {
       font-size: .75rem;
-      color: #C0C0C0;
+      color: var(--demo-grey);
     }
   }
 }
