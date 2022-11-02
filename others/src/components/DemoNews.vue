@@ -1,5 +1,5 @@
 <template>
-  <div id="demo-news" v-show="user.authtoken && menu.current == 'news'" class="row">
+  <div id="demo-news" v-show="menu.current == 'news'" class="row">
     <div v-for="n in news" :key="n.id" :id="`news-${n.id}`" class="col-sm-12">
       <div class="media">
         <img v-if="n.image" :alt="n.title" :src="'data:' + n.image.mime + ';base64,' + n.image.content" class="mr-3"/>
@@ -16,7 +16,6 @@
 <script>
 export default {
   computed: {
-    user() { return this.$store.state.user; },
     menu() { return this.$store.state.menu; },
     news() { return this.$store.state.news; }
   }

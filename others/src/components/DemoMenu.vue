@@ -1,5 +1,5 @@
 <template>
-  <nav id="demo-menu" v-show="user.authtoken">
+  <nav id="demo-menu">
     <img alt="Logo" class="clickable" @click="toggle" src="/img/logo.png"/>
     <ul>
       <li :class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" :key="item.name" :name="item.name" @click="click(item.name)">
@@ -17,7 +17,6 @@
 <script>
 export default {
   computed: {
-    user() { return this.$store.state.user; },
     menu() { return this.$store.state.menu; }
   },
   methods: {

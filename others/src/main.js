@@ -169,10 +169,10 @@ const store = createStore({
 if (token)
   store.commit('login', { authtoken: token });*/
 
-app.login({ username: 'website', password: 'simplicite' }).then(user => {
-  store.commit('user', user);
+//app.login({ username: 'website', password: 'simplicite' }).then(user => {
+  store.commit('user', /*user*/{ authtoken: '_public_' });
   store.commit('selectMenu', 'products');
   const vueApp = createApp(DemoApp);
   vueApp.use(store);
   vueApp.mount('body');
-});
+//});
