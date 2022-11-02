@@ -34,4 +34,9 @@ export default {
 </script>
 
 <style lang="less">
+#demo-contacts {
+  .card-body {
+    overflow-x: auto;
+  }
+}
 </style>
