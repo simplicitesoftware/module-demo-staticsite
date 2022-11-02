@@ -7,6 +7,7 @@
           <h3 class="card-title">{{p.demoPrdName}}</h3>
           <h5 class="card-title">{{p.demoPrdReference}}</h5>
           <p class="card-text text-muted" v-html="p.demoPrdDescription"></p>
+          <button v-if="client" class="btn btn-primary" @click="order">Order</button>
         </div>
       </div>
     </div>
@@ -18,7 +19,13 @@ export default {
   computed: {
     user() { return this.$store.state.user; },
     menu() { return this.$store.state.menu; },
-    products() { return this.$store.state.products; }
+    products() { return this.$store.state.products; },
+    client() { return this.$store.state.client; }
+  },
+  methods: {
+    order() {
+      this.$store.commit('order');
+    }
   }
 }
 </script>
