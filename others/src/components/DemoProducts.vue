@@ -33,7 +33,7 @@ export default {
 #demo-products {
   padding: 0 1rem;
   .col-sm-3 {
-    padding: .5rem;
+    padding: .25rem;
   }
 }
 </style>

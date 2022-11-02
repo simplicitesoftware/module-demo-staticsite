@@ -34,6 +34,9 @@ import DemoNews from './components/DemoNews.vue';
 export default {
   name: 'DemoApp',
   components: { DemoMenu, DemoProducts, DemoOrder, DemoOrders, DemoContacts, DemoNews },
+  data() {
+    return { clientCode: '' };
+  },
   computed: {
     error() { return this.$store.state.error; },
     client() { return this.$store.state.client; }

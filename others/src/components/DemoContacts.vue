@@ -1,7 +1,7 @@
 <template>
   <div id="demo-contacts" v-show="client.row_id && menu.current == 'contacts'" class="card">
     <div class="card-body">
-      <table class="table table-stripped">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Date</th>

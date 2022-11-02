@@ -1,7 +1,7 @@
 <template>
   <div id="demo-orders" v-show="client.row_id && menu.current == 'orders'" class="card">
     <div class="card-body">
-      <table class="table table-stripped">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -14,7 +14,7 @@
         <tbody>
           <tr v-for="o in orders" :key="o.row_id" :id="`order-${o.row_id}`">
             <th scope="row">{{o.demoOrdNumber}}</th>
-            <td>{{o.demoOrdDate}}</td>
+            <td v-text="new Date(Date.parse(o.demoOrdDate)).toLocaleDateString()"></td>
             <td>{{o.demoOrdPrdId__demoPrdReference}}</td>
             <td>{{o.demoOrdQuantity}}</td>
             <td><span class="badge badge-pill badge-primary">{{o.demoOrdStatus}}</span></td>
