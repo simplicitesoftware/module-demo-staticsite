@@ -12,8 +12,6 @@ import DemoApp from './DemoApp.vue';
 const cfg = { url: process.env.VUE_APP_URL, timeout: 3, debug: true };
 const app = simplicite.session(cfg);
 
-//const LS_TOKEN_KEY = "demo-staticsite-token";
-
 app.info('Version: ' + process.env.VUE_APP_VERSION);
 app.debug(app.parameters);
 
@@ -22,15 +20,13 @@ const store = createStore({
   state() {
     return {
       version: process.env.VUE_APP_VERSION,
-      user: {/* authtoken: window.localStorage.getItem(LS_TOKEN_KEY) */},
       menu: {
         current: 'products',
         items: [
           { name: "products", icon: "gift", label: "Products", selected: true },
           { name: "orders", icon: "file", label: "My orders", disabled: true },
           { name: "contacts", icon: "comments", label: "My contacts", disabled: true },
-          { name: "news", icon: "rss", label: "News" }/*,
-          { name: "logout", icon: "sign-out", label: "Sign out" }*/
+          { name: "news", icon: "rss", label: "News" }
         ]
       },
       error: '',
@@ -45,44 +41,6 @@ const store = createStore({
     }
   },
   mutations: {
-    /*async login(state, params) {
-      if (params.authtoken || (params.username && params.password)) {
-        app.login(params).then(user => {
-          state.user = user;
-          state.error = '';
-          window.localStorage.setItem(LS_TOKEN_KEY, user.authtoken);
-          this.commit('selectMenu', 'products');
-        }).catch(e => {
-          app.error(e.message);
-          if (!e.status)
-            state.user = { error: 'No internet connection, retry later' };
-          else if (!params.authtoken)
-            state.user = { error: 'Incorrect username or password' };
-          else
-            state.user = {};
-          window.localStorage.removeItem(LS_TOKEN_KEY);
-        });
-       }
-    },*/
-    user(state, user) {
-      state.user = user;
-    },
-    /*async logout(state) {
-      await app.logout().catch(e => {
-        app.error(e);
-      });
-      //window.localStorage.removeItem(LS_TOKEN_KEY);
-      state.user = {};
-      state.error = '';
-      state.products = [];
-      state.product = {};
-      state.client = '';
-      state.orders = [];
-      state.order = {};
-      state.contacts = [];
-      state.contact = {};
-      state.news = []
-    },*/
     error(state, e) {
       app.error(e);
       if (e.status) {
@@ -165,14 +123,8 @@ const store = createStore({
   }
 });
 
-/*const token = window.localStorage.getItem(LS_TOKEN_KEY);
-if (token)
-  store.commit('login', { authtoken: token });*/
+store.commit('selectMenu', 'products');
 
-//app.login({ username: 'website', password: 'simplicite' }).then(user => {
-  store.commit('user', /*user*/{ authtoken: '_public_' });
-  store.commit('selectMenu', 'products');
-  const vueApp = createApp(DemoApp);
-  vueApp.use(store);
-  vueApp.mount('body');
-//});
+const vueApp = createApp(DemoApp);
+vueApp.use(store);
+vueApp.mount('body');
