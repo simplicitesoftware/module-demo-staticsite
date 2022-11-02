@@ -29,7 +29,7 @@ export default {
 
 <style lang="less">
 #demo-menu {
-  background: #2362A5;
+  background: var(--demo-blue);
   color: #FFFFFF;
   position: fixed;
   top: 0;
@@ -64,7 +64,7 @@ export default {
         cursor: pointer;
       }
       &.selected {
-        color: #2362A5;
+        color: var(--demo-blue);
         background: #F0F0F0;
       }
     }

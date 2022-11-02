@@ -29,12 +29,35 @@ export default {
 :root {
   --demo-blue: #2362A5;
   --demo-orange: #A57C23;
-  --demo-grey: #C0C0C0;
+  --demo-grey: #E0E0E0;
   --demo-black: #202020;
 }
 #demo-body {
   .clickable {
     cursor: pointer;
+  }
+  h3 {
+    color: var(--demo-blue);
+  }
+  h5 {
+    color: var(--demo-orange);
+  }
+  .card, .media {
+    border-radius: 1rem;
+    background: #FFFFFF;
+    border: solid .0625rem var(--demo-grey);
+  }
+  .card {
+    padding: .5rem;
+  }
+  .card-img, .card-img-top {
+    padding: 1.5rem;
+    max-width: 16rem;
+    margin: 0 auto;
+  }
+  .media {
+    padding: 1rem;
+    margin-bottom: .5rem;
   }
 }
 #demo-page {
@@ -57,7 +80,7 @@ export default {
   }
 }
 * {
-  scrollbar-color: #E0E0E0 transparent;
+  scrollbar-color: var(--demo-grey) transparent;
   scrollbar-width: .5rem;
 }
 ::-webkit-scrollbar {
@@ -65,7 +88,7 @@ export default {
   height: .5rem;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #E0E0E0;
+  background-color: var(--demo-grey);
   border-radius: .25rem;
 }
 ::-webkit-scrollbar-track {

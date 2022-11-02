@@ -90,7 +90,18 @@ const store = createStore({
     async contacts(/*state*/) {
       console.log('Contacts: not implemented');
     },
-    async news(/*state*/) {
+    async news(state) {
+      app.getNews({ inlineImages: true }).then(res => {
+        app.debug(res);
+        state.news = res;
+      }).catch(e => {
+        app.error(e);
+        if (e.status) {
+          state.products = [];
+          if (e.status == 401)
+            this.commit('logout');
+        }
+      })
       console.log('News: not implemented');
     }
   }
