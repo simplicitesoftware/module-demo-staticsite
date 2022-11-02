@@ -85,7 +85,7 @@ const store = createStore({
       state.news = []
     },*/
     backend() {
-      document.location.replace('/ui');
+      document.location.assign('/ui');
     },
     error(state, e) {
       app.error(e);
