@@ -7,7 +7,7 @@
           <h3 class="card-title">{{p.demoPrdName}}</h3>
           <h5 class="card-title">{{p.demoPrdReference}}</h5>
           <p class="card-text text-muted" v-html="p.demoPrdDescription"></p>
-          <button v-if="client" class="btn btn-primary" @click="order">Order</button>
+          <button v-if="client.row_id" class="btn btn-primary" @click="order">Order</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div id="demo-contact" v-show="client && menu.current == 'contact'">
+  <div id="demo-contact" v-show="client.row_id && menu.current == 'contact'">
     TODO: new contact
   </div>
 </template>

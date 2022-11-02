@@ -1,5 +1,5 @@
 <template>
-  <div id="demo-order" v-show="client && menu.current == 'order'">
+  <div id="demo-order" v-show="client.row_id && menu.current == 'order'">
     TODO: new order
   </div>
 </template>

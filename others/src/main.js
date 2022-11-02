@@ -24,15 +24,15 @@ const store = createStore({
         current: 'products',
         items: [
           { name: "products", icon: "gift", label: "Products", selected: true },
-          { name: "orders", icon: "file", label: "My orders", disabled: true },
-          { name: "contacts", icon: "comments", label: "My contacts", disabled: true },
+          { name: "orders", icon: "file", label: "My orders", disabled: true, client: true },
+          { name: "contacts", icon: "comments", label: "My contacts", disabled: true, client: true  },
           { name: "news", icon: "rss", label: "News" }
         ]
       },
       error: '',
       products: [],
       product: {},
-      client: '',
+      client: {},
       orders: [],
       order: {},
       contacts: [],
@@ -43,15 +43,10 @@ const store = createStore({
   mutations: {
     error(state, e) {
       app.error(e);
-      if (e.status) {
-        state.products = [];
-        if (e.status == 401)
-          this.commit('logout');
-        else
-          state.error = e.message;
-      }
+      /*if (e.status || e.level) */state.error = e.message;
     },
     selectMenu(state, name) {
+      state.error = '';
       for (const item of state.menu.items)
         if (item.name == name && item.disabled) return;
       for (const item of state.menu.items)
@@ -60,15 +55,38 @@ const store = createStore({
       this.commit(name);
     },
     async products(state) {
+      state.error = '';
       app.getBusinessObject('DemoProduct').search({ demPrdAvailable: true }, { inlineDocuments: [ 'demoPrdPicture' ] }).then(products => {
         app.debug(products);
         state.products = products;
       }).catch(e => {
         if (e.status) state.products = [];
-        state.commit('error', e);
+        this.commit('error', e);
+      });
+    },
+    async client(state, code) {
+      state.error = '';
+      app.getBusinessObject('DemoClient').search({ demoCliCode: code }).then(clients => {
+        app.debug(clients);
+        if (clients.length == 1) {
+          state.client = clients[0];
+          for (const item of state.menu.items)
+            if (item.client)
+              item.disabled = false;
+        } else {
+          state.error = `Customer ${code} not found`;
+          state.client = {};
+          for (const item of state.menu.items)
+            if (item.client)
+              item.disabled = true;
+        }
+      }).catch(e => {
+        if (e.status) state.client = {};
+        this.commit('error', e);
       });
     },
     async order(state) {
+      state.error = '';
       if (!state.client) return;
       app.getBusinessObject('DemoOrder').getForCreate().then(order => {
         app.debug(order);
@@ -76,17 +94,18 @@ const store = createStore({
         state.order = order;
       }).catch(e => {
         if (e.status) state.order = {};
-        state.commit('error', e);
+        this.commit('error', e);
       });
     },
     async orders(state) {
+      state.error = '';
       if (!state.client) return;
-      app.getBusinessObject('DemoOrder').search({ demoOrdCliId__demoCliCode: state.client }).then(orders => {
+      app.getBusinessObject('DemoOrder').search({ demoOrdCliId: state.client.row_id }).then(orders => {
         app.debug(orders);
         state.orders = orders;
       }).catch(e => {
         if (e.status) state.orders = [];
-        state.commit('error', e);
+        this.commit('error', e);
       });
     },
     async contact(state) {
@@ -97,26 +116,28 @@ const store = createStore({
         state.contact = contact;
       }).catch(e => {
         if (e.status) state.contact = {};
-        state.commit('error', e);
+        this.commit('error', e);
       });
     },
     async contacts(state) {
+      state.error = '';
       if (!state.client) return;
-      app.getBusinessObject('DemoContact').search({ demoCtcCliId__demoCliCode: state.client }).then(contacts => {
+      app.getBusinessObject('DemoContact').search({ demoCtcCliId: state.client.row_id }).then(contacts => {
         app.debug(contacts);
         state.contacts = contacts;
       }).catch(e => {
         if (e.status) state.contacts = [];
-        state.commit('error', e);
+        this.commit('error', e);
       });
     },
     async news(state) {
+      state.error = '';
       app.getNews({ inlineImages: true }).then(news => {
         app.debug(news);
         state.news = news;
       }).catch(e => {
         if (e.status) state.news = [];
-        state.commit('error', e);
+        this.commit('error', e);
       })
       console.log('News: not implemented');
     }
@@ -125,6 +146,9 @@ const store = createStore({
 
 store.commit('selectMenu', 'products');
 
-const vueApp = createApp(DemoApp);
-vueApp.use(store);
-vueApp.mount('body');
+// TODO: Temporary
+app.login({ username: 'website', password: 'simplicite' }).then(() => {
+  const vueApp = createApp(DemoApp);
+  vueApp.use(store);
+  vueApp.mount('body');
+});

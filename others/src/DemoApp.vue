@@ -2,7 +2,18 @@
   <div id="demo-body">
     <DemoMenu/>
     <div id="demo-page">
-      <div class="alert alert-danger" v-if="error"></div>
+      <div id="demo-error" class="alert alert-danger" v-if="error">{{error}}</div>
+      <div id="demo-client" class="card">
+        <div class="card-body">
+          <div class="input-group" v-if="!client.row_id">
+            <input type="text" class="form-control" placeholder="Customer code" v-model="clientCode">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" @click="searchClient">Ok</button>
+            </div>
+          </div>
+          <div v-if="client.row_id"><span class="fas fa-user"></span>&nbsp;Hello {{client.demoCliFirstname}} {{client.demoCliLastname}}</div>
+        </div>
+      </div>
       <DemoProducts/>
       <DemoOrder/>
       <DemoOrders/>
@@ -25,6 +36,12 @@ export default {
   components: { DemoMenu, DemoProducts, DemoOrder, DemoOrders, DemoContacts, DemoNews },
   computed: {
     error() { return this.$store.state.error; },
+    client() { return this.$store.state.client; }
+  },
+  methods: {
+    searchClient() {
+      this.$store.commit('client', this.clientCode.toUpperCase());
+    }
   }
 }
 </script>
@@ -68,6 +85,24 @@ export default {
     padding: 1rem;
     margin-bottom: .5rem;
   }
+  table {
+    color: var(--demo-blue);
+    thead {
+      th {
+        color: #FFFFFF;
+        background: var(--demo-blue);
+      }
+    }
+  }
+  .badge-primary {
+     background: var(--demo-blue);
+  }
+}
+#demo-error, #demo-client {
+  margin: 0 0 .5rem 0;
+}
+#demo-client {
+  color: var(--demo-blue);
 }
 #demo-page {
   margin-left: 16rem;
