@@ -35,12 +35,17 @@ export default {
 :root {
   --demo-blue: #2362A5;
   --demo-orange: #A57C23;
+  --demo-green: #167830;
+  --demo-red: #6D2A2A;
   --demo-grey: #E0E0E0;
   --demo-black: #202020;
 }
 #demo-body {
   .clickable {
     cursor: pointer;
+  }
+  h1 {
+    color: var(--demo-green);
   }
   h3 {
     color: var(--demo-blue);
