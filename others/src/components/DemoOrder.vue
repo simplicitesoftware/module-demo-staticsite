@@ -1,7 +1,7 @@
 <template>
   <div id="demo-order" v-show="client.row_id && menu.current == 'order'" class="card">
     <div class="card-body">
-      <h3 class="card-title"><span class="fas fa-file"></span>&nbsp;New order</h3>
+      <h3 class="card-title"><span class="fas fa-cart-shopping"></span>&nbsp;Place order</h3>
       <p class="card-text">TODO</p>
     </div>
   </div>

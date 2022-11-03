@@ -17,6 +17,17 @@ const app = simplicite.session(cfg);
 app.info('Version: ' + process.env.VUE_APP_VERSION);
 app.debug(app.parameters);
 
+const showLoading = () => {
+  const l = document.querySelector('#demo-loading');
+  l.style.display = 'block';
+  l.querySelector('span').classList.add('fa-spin');
+};
+
+const hideLoading = () => {
+  const l = document.querySelector('#demo-loading');
+  l.style.display = 'none';
+  l.querySelector('span').classList.remove('fa-spin');
+};
 
 const store = createStore({
   state() {
@@ -26,7 +37,7 @@ const store = createStore({
         current: 'products',
         items: [
           { name: "products", icon: "gift", label: "Products", selected: true },
-          { name: "orders", icon: "file", label: "My orders", disabled: true, client: true },
+          { name: "orders", icon: "cart-shopping", label: "My orders", disabled: true, client: true },
           { name: "contacts", icon: "comments", label: "My contacts", disabled: true, client: true  },
           { name: "news", icon: "rss", label: "News" }
         ]
@@ -45,7 +56,10 @@ const store = createStore({
   mutations: {
     error(state, e) {
       app.error(e);
-      /*if (e.status || e.level) */state.error = e.message;
+      if (e.status || e.level)
+        state.error = e.message;
+      else
+        state.error = 'Network not available, please retry later...'
     },
     selectMenu(state, name) {
       state.error = '';
@@ -58,16 +72,18 @@ const store = createStore({
     },
     async products(state) {
       state.error = '';
+      showLoading();
       app.getBusinessObject('DemoProduct').search({ demPrdAvailable: true }, { inlineDocuments: [ 'demoPrdPicture' ] }).then(products => {
         app.debug(products);
         state.products = products;
       }).catch(e => {
         if (e.status) state.products = [];
         this.commit('error', e);
-      });
+      }).finally(hideLoading);
     },
     async client(state, code) {
       state.error = '';
+      showLoading();
       app.getBusinessObject('DemoClient').search({ demoCliCode: code }).then(clients => {
         app.debug(clients);
         if (clients.length == 1) {
@@ -85,11 +101,12 @@ const store = createStore({
       }).catch(e => {
         if (e.status) state.client = {};
         this.commit('error', e);
-      });
+      }).finally(hideLoading);
     },
     async order(state) {
       state.error = '';
       if (!state.client) return;
+      showLoading();
       app.getBusinessObject('DemoOrder').getForCreate().then(order => {
         app.debug(order);
         state.menu.current = 'order';
@@ -97,21 +114,24 @@ const store = createStore({
       }).catch(e => {
         if (e.status) state.order = {};
         this.commit('error', e);
-      });
+      }).finally(hideLoading);
     },
     async orders(state) {
       state.error = '';
       if (!state.client) return;
+      showLoading();
       app.getBusinessObject('DemoOrder').search({ demoOrdCliId: state.client.row_id }).then(orders => {
         app.debug(orders);
         state.orders = orders;
       }).catch(e => {
         if (e.status) state.orders = [];
         this.commit('error', e);
-      });
+      }).finally(hideLoading);
     },
     async contact(state) {
+      state.error = '';
       if (!state.client) return;
+      showLoading();
       app.getBusinessObject('DemoContact').getForCreate().then(contact => {
         app.debug(contact);
         state.menu.current = 'contact';
@@ -119,34 +139,33 @@ const store = createStore({
       }).catch(e => {
         if (e.status) state.contact = {};
         this.commit('error', e);
-      });
+      }).finally(hideLoading);
     },
     async contacts(state) {
       state.error = '';
       if (!state.client) return;
+      showLoading();
       app.getBusinessObject('DemoContact').search({ demoCtcCliId: state.client.row_id }).then(contacts => {
         app.debug(contacts);
         state.contacts = contacts;
       }).catch(e => {
         if (e.status) state.contacts = [];
         this.commit('error', e);
-      });
+      }).finally(hideLoading);
     },
     async news(state) {
       state.error = '';
+      showLoading();
       app.getNews({ inlineImages: true }).then(news => {
         app.debug(news);
         state.news = news;
       }).catch(e => {
         if (e.status) state.news = [];
         this.commit('error', e);
-      })
-      console.log('News: not implemented');
+      }).finally(hideLoading);
     }
   }
 });
-
-store.commit('selectMenu', 'products');
 
 // TODO: Temporary
 app.login({ username: 'website', password: 'simplicite' }).then(() => {

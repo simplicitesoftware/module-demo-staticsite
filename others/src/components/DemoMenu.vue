@@ -2,7 +2,7 @@
   <nav id="demo-menu">
     <img alt="Logo" class="clickable" @click="toggle" src="/img/logo.png"/>
     <ul>
-      <li :class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" :key="item.name" :name="item.name" @click="click(item.name)">
+      <li :class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" :key="item.name" :id="`demo-menu-${item.name}`" @click="click(item.name)">
         <span class="label"><span :class="`fas fa-${item.icon}`"></span>&nbsp;{{ item.label }}</span>
         <span class="icononly" :title="item.label"><span :class="`fas fa-${item.icon}`"></span></span>
       </li>
@@ -41,9 +41,9 @@ export default {
   width: 16rem;
   border-radius: 0 1rem 1rem 0;
   img {
-    margin: 1rem 2rem;
-    width: 12rem;
-    height: 12rem;
+    margin: 2rem 3rem 0 3rem;
+    width: 10rem;
+    height: 10rem;
   }
   ul {
     list-style-type: none;

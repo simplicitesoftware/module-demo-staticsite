@@ -2,8 +2,9 @@
   <div id="demo-body">
     <DemoMenu/>
     <div id="demo-page">
-      <div id="demo-error" class="alert alert-danger" v-if="error">{{error}}</div>
       <DemoClient/>
+      <div id="demo-error" class="alert alert-danger" v-if="error">{{error}}</div>
+      <div id="demo-loading"><span class="fas fa-spinner"></span> Loading...</div>
       <DemoProducts/>
       <DemoOrder/>
       <DemoOrders/>
@@ -26,6 +27,9 @@ export default {
   name: 'DemoApp',
   components: {
     DemoMenu, DemoClient, DemoProducts, DemoOrder, DemoOrders, DemoContacts, DemoNews
+  },
+  mounted() {
+    this.$store.commit('selectMenu', 'products');
   },
   computed: {
     error() { return this.$store.state.error; }
@@ -101,6 +105,10 @@ export default {
   #demo-page {
     .page-minified();
   }
+}
+#demo-loading {
+  display: none;
+  text-align: center;
 }
 @media screen and (max-width: 767px) {
   #demo-page {

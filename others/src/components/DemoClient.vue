@@ -2,9 +2,9 @@
   <div id="demo-client" class="card">
     <div class="card-body">
       <div class="input-group" v-if="!client.row_id">
-        <input type="text" class="form-control" placeholder="Customer code" v-model="clientCode">
+        <input type="text" class="form-control" placeholder="Your customer code" v-model="clientCode">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" @click="searchClient">Ok</button>
+          <button class="btn btn-primary" @click="searchClient"><span class="fas fa-sign-in"></span>&nbsp;Sign in</button>
         </div>
       </div>
       <div v-if="client.row_id"><span class="fas fa-user"></span>&nbsp;Hello {{client.demoCliFirstname}} {{client.demoCliLastname}}</div>
