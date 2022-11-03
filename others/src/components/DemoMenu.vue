@@ -60,8 +60,7 @@ export default {
         display: none;
       }
       &.disabled {
-        color: #C0C0C0;
-        font-style: italic;
+        color: var(--demo-darkgrey);
       }
       &:not(.disabled) {
         cursor: pointer;

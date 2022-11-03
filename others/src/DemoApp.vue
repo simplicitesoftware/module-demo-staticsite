@@ -44,6 +44,7 @@ export default {
   --demo-green: #167830;
   --demo-red: #6D2A2A;
   --demo-grey: #E0E0E0;
+  --demo-darkgrey: #A0A0A0;
   --demo-black: #202020;
 }
 #demo-body {

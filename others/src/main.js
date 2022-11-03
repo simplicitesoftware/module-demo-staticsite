@@ -11,7 +11,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import DemoApp from './DemoApp.vue';
 
-const cfg = { url: process.env.VUE_APP_URL, timeout: 3, debug: true };
+// For local development:
+// const cfg = { url: process.env.VUE_APP_URL, debug: true };
+// For production:
+const cfg = {};
 const app = simplicite.session(cfg);
 
 app.info('Version: ' + process.env.VUE_APP_VERSION);
@@ -167,7 +170,7 @@ const store = createStore({
   }
 });
 
-// TODO: Temporary
+// Temporary: use a named technical user
 app.login({ username: 'website', password: 'simplicite' }).then(() => {
   const vueApp = createApp(DemoApp);
   vueApp.use(store);
