@@ -12,9 +12,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import DemoApp from './DemoApp.vue';
 
 // For local development:
-// const cfg = { url: process.env.VUE_APP_URL, debug: true };
+const cfg = { url: process.env.VUE_APP_URL, debug: true };
 // For production:
-const cfg = {};
+//const cfg = {};
 const app = simplicite.session(cfg);
 
 app.info('Version: ' + process.env.VUE_APP_VERSION);
@@ -106,11 +106,14 @@ const store = createStore({
         this.commit('error', e);
       }).finally(hideLoading);
     },
-    async order(state) {
+    async order(state, product) {
+      state.product = product;
       state.error = '';
       if (!state.client) return;
       showLoading();
       app.getBusinessObject('DemoOrder').getForCreate().then(order => {
+        order.demoOrdPrdId = state.product.row_id;
+        order.demoOrdCliId = state.client.row_id;
         app.debug(order);
         state.menu.current = 'order';
         state.order = order;

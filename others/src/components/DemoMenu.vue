@@ -67,7 +67,7 @@ export default {
       }
       &.selected {
         color: var(--demo-blue);
-        background: #F0F0F0;
+        background: var(--demo-lightgrey);
       }
     }
   }
