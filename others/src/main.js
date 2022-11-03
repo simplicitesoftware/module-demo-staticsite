@@ -11,11 +11,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import DemoApp from './DemoApp.vue';
 
-// For local development:
-const cfg = { url: process.env.VUE_APP_URL, debug: true };
-// For production:
-//const cfg = {};
-const app = simplicite.session(cfg);
+const app = simplicite.session(process.env.VUE_APP_URL ? { url: process.env.VUE_APP_URL, debug: true } : {});
 
 app.info('Version: ' + process.env.VUE_APP_VERSION);
 app.debug(app.parameters);
