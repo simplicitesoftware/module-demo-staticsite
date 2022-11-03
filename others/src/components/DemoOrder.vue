@@ -1,6 +1,9 @@
 <template>
-  <div id="demo-order" v-show="client.row_id && menu.current == 'order'">
-    TODO: new order
+  <div id="demo-order" v-show="client.row_id && menu.current == 'order'" class="card">
+    <div class="card-body">
+      <h3 class="card-title"><span class="fas fa-file"></span>&nbsp;New order</h3>
+      <p class="card-text">TODO</p>
+    </div>
   </div>
 </template>
 

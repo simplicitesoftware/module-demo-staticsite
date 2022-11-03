@@ -1,6 +1,7 @@
 <template>
   <div id="demo-contacts" v-show="client.row_id && menu.current == 'contacts'" class="card">
     <div class="card-body">
+      <h3 class="card-title"><span class="fas fa-comments"></span>&nbsp;My contacts</h3>
       <table class="table table-striped">
         <thead>
           <tr>

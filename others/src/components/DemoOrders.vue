@@ -1,6 +1,7 @@
 <template>
   <div id="demo-orders" v-show="client.row_id && menu.current == 'orders'" class="card">
     <div class="card-body">
+      <h3 class="card-title"><span class="fas fa-file"></span>&nbsp;My orders</h3>
       <table class="table table-striped">
         <thead>
           <tr>

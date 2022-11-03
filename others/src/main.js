@@ -4,8 +4,10 @@ import { createStore } from 'vuex';
 
 import simplicite from 'simplicite';
 
-import 'bootstrap';
+// import 'bootstrap'; Bootstrap JS not needed, uncomment if required
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import DemoApp from './DemoApp.vue';
 

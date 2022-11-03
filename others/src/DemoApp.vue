@@ -3,17 +3,7 @@
     <DemoMenu/>
     <div id="demo-page">
       <div id="demo-error" class="alert alert-danger" v-if="error">{{error}}</div>
-      <div id="demo-client" class="card">
-        <div class="card-body">
-          <div class="input-group" v-if="!client.row_id">
-            <input type="text" class="form-control" placeholder="Customer code" v-model="clientCode">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" @click="searchClient">Ok</button>
-            </div>
-          </div>
-          <div v-if="client.row_id"><span class="fas fa-user"></span>&nbsp;Hello {{client.demoCliFirstname}} {{client.demoCliLastname}}</div>
-        </div>
-      </div>
+      <DemoClient/>
       <DemoProducts/>
       <DemoOrder/>
       <DemoOrders/>
@@ -25,6 +15,7 @@
 
 <script>
 import DemoMenu from './components/DemoMenu.vue';
+import DemoClient from './components/DemoClient.vue';
 import DemoProducts from './components/DemoProducts.vue';
 import DemoOrder from './components/DemoOrder.vue';
 import DemoOrders from './components/DemoOrders.vue';
@@ -33,18 +24,11 @@ import DemoNews from './components/DemoNews.vue';
 
 export default {
   name: 'DemoApp',
-  components: { DemoMenu, DemoProducts, DemoOrder, DemoOrders, DemoContacts, DemoNews },
-  data() {
-    return { clientCode: '' };
+  components: {
+    DemoMenu, DemoClient, DemoProducts, DemoOrder, DemoOrders, DemoContacts, DemoNews
   },
   computed: {
-    error() { return this.$store.state.error; },
-    client() { return this.$store.state.client; }
-  },
-  methods: {
-    searchClient() {
-      this.$store.commit('client', this.clientCode.toUpperCase());
-    }
+    error() { return this.$store.state.error; }
   }
 }
 </script>
@@ -101,11 +85,8 @@ export default {
      background: var(--demo-blue);
   }
 }
-#demo-error, #demo-client {
+#demo-error {
   margin: 0 0 .5rem 0;
-}
-#demo-client {
-  color: var(--demo-blue);
 }
 #demo-page {
   margin-left: 16rem;
