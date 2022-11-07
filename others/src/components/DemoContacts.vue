@@ -1,23 +1,23 @@
 <template>
   <div id="demo-contacts" v-show="client.row_id && menu.current == 'contacts'" class="card">
     <div class="card-body">
-      <h3 class="card-title"><span class="fas fa-comments"></span>&nbsp;My contacts</h3>
+      <h3 class="card-title"><span class="fas fa-comments"></span>&nbsp;My contacts <sup class="badge badge-primary">{{contacts.length}}</sup></h3>
       <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Date</th>
             <th scope="col">Status</th>
             <th scope="col">Type</th>
-            <th scope="col">Sub-type</th>
+            <th scope="col">Canal</th>
             <th scope="col">Messages</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="c in contacts" :key="c.row_id" :id="`contact-${c.row_id}`">
             <td v-text="new Date(Date.parse(c.demoCtcDatetime.replace(' ', 'T'))).toLocaleString()"></td>
-            <td><span class="badge badge-pill badge-primary" :style="`color: ${this.getColors(c.demoCtcStatus).color}; background-color: ${this.getColors(c.demoCtcStatus).bgcolor}`">{{ctc.getFieldListValue('demoCtcStatus', c)}}</span></td>
+            <td><span class="badge badge-pill badge-primary" :style="`color: ${this.getColors('demoCtcStatus', c.demoCtcStatus).color}; background-color: ${this.getColors('demoCtcStatus', c.demoCtcStatus).bgcolor}`">{{ctc.getFieldListValue('demoCtcStatus', c)}}</span></td>
             <td>{{ctc.getFieldListValue('demoCtcType', c)}}</td>
-            <td>{{ctc.getFieldListValue('demoCtcSubType', c)}}</td>
+            <td>{{ctc.getFieldListValue('demoCtcCanal', c)}}</td>
             <td><pre>{{c.demoCtcMessages}}</pre></td>
           </tr>
         </tbody>
@@ -36,9 +36,9 @@ export default {
   },
   methods: {
     // Temporary
-    getColors(s) {
-      for (const l of this.ctc.getField('demoCtcStatus').listOfValues)
-        if (l.code == s)
+    getColors(field, code) {
+      for (const l of this.ctc.getField(field).listOfValues)
+        if (l.code == code)
           return { color: l.color, bgcolor: l.bgcolor };
       return { color: 'inherit', bgcolor: 'inherit' };
     }

@@ -201,11 +201,8 @@ const store = createStore({
 
 // Temporary: use a named technical user
 app.login({ username: 'website', password: 'simplicite' }).then(() => {
-  app.getBusinessObject('DemoOrder').getMetadata().then(omd => {
-    console.log(omd);
-    app.getBusinessObject('DemoContact').getMetadata().then(cmd => {
-      console.log(cmd);
-      console.log(app.getBusinessObject('DemoContact').getField('demoCtcStatus'));
+  app.getBusinessObject('DemoOrder').getMetadata().then(() => {
+    app.getBusinessObject('DemoContact').getMetadata().then(() => {
       const vueApp = createApp(DemoApp);
       vueApp.config.globalProperties.$simplicite = app;
       vueApp.use(store);
