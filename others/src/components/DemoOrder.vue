@@ -3,16 +3,19 @@
     <div class="card-body">
       <h3 class="card-title"><span class="fas fa-cart-shopping"></span>&nbsp;Place order</h3>
       <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-5 order">
           <img v-if="product.demoPrdPicture" :alt="product.demoPrdReference" :src="'data:' + product.demoPrdPicture.mime + ';base64,' + product.demoPrdPicture.content"/>
           <h1>{{product.demoPrdName}}</h1>
           <h3>{{product.demoPrdReference}}</h3>
           <h5>{{product.demoPrdDescription}}</h5>
-          <div class="input-group">
+          <div class="input-group" v-if="order.row_id == '0'">
             <input type="text" class="form-control" placeholder="Quantity" v-model="quantity">
             <div class="input-group-append">
-              <button class="btn btn-primary" @click="order"><span class="fas fa-check"></span>&nbsp;Order</button>
+              <button class="btn btn-primary" @click="placeOrder"><span class="fas fa-check"></span>&nbsp;Order</button>
             </div>
+          </div>
+          <div class="alert alert-info" v-if="order.row_id != '0'">
+            Your order #{{order.demoOrdNumber}} has been placed. <strong>Thank you!</strong>
           </div>
         </div>
         <div class="col-sm-7 doc">
@@ -26,16 +29,20 @@
 <script>
 export default {
   data() {
-    return { quantity: 1 };
+    return {
+      quantity: 1
+    };
   },
   computed: {
     client() { return this.$store.state.client; },
     menu() { return this.$store.state.menu; },
-    product() { return this.$store.state.product; }
+    product() { return this.$store.state.product; },
+    error() { return this.$store.state.error; },
+    order() { return this.$store.state.order; }
   },
   methods: {
-    order() {
-        alert('Not yet implemented...');
+    placeOrder() {
+      this.$store.commit('placeOrder', this.quantity);
     }
   }
 }
@@ -43,6 +50,9 @@ export default {
 
 <style lang="less">
 #demo-order {
+  .order {
+    margin-bottom: 1rem;
+  }
   .doc {
     background: var(--demo-lightgrey);
     padding: 1rem;

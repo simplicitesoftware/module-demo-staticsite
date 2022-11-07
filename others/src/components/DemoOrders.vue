@@ -10,6 +10,7 @@
             <th scope="col">Product</th>
             <th scope="col">Quantity</th>
             <th scope="col">Status</th>
+            <th scope="col">Contacts</th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
             <td>{{o.demoOrdPrdId__demoPrdName}} ({{o.demoOrdPrdId__demoPrdReference}})</td>
             <td>{{o.demoOrdQuantity}}</td>
             <td><span class="badge badge-pill badge-primary">{{o.demoOrdStatus}}</span></td>
+            <td><button class="btn btn-sm btn-primary" @click="prepareContact"><span class="fas fa-comments"></span> Contact</button></td>
           </tr>
         </tbody>
       </table>
@@ -32,6 +34,11 @@ export default {
     client() { return this.$store.state.client; },
     menu() { return this.$store.state.menu; },
     orders() { return this.$store.state.orders; }
+  },
+  methods: {
+    prepareContact() {
+      alert('Not implemented yet');
+    }
   }
 }
 </script>

@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     order(product) {
-      this.$store.commit('order', product);
+      this.$store.commit('prepareOrder', product);
     }
   }
 }

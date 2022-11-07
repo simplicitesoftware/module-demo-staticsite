@@ -102,7 +102,7 @@ const store = createStore({
         this.commit('error', e);
       }).finally(hideLoading);
     },
-    async order(state, product) {
+    async prepareOrder(state, product) {
       state.product = product;
       state.error = '';
       if (!state.client) return;
@@ -112,6 +112,19 @@ const store = createStore({
         order.demoOrdCliId = state.client.row_id;
         app.debug(order);
         state.menu.current = 'order';
+        state.order = order;
+      }).catch(e => {
+        if (e.status) state.order = {};
+        this.commit('error', e);
+      }).finally(hideLoading);
+    },
+    async placeOrder(state, quantity) {
+      state.order.demoOrdQuantity = quantity;
+      state.order.demoOrdComments = 'Placed on the frontend';
+      state.error = '';
+      if (!state.client) return;
+      showLoading();
+      app.getBusinessObject('DemoOrder').create(state.order).then(order => {
         state.order = order;
       }).catch(e => {
         if (e.status) state.order = {};
