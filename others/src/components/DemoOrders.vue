@@ -20,24 +20,30 @@
             <td>{{o.demoOrdPrdId__demoPrdName}} ({{o.demoOrdPrdId__demoPrdReference}})</td>
             <td>{{o.demoOrdQuantity}}</td>
             <td><span class="badge badge-pill badge-primary">{{o.demoOrdStatus}}</span></td>
-            <td><button class="btn btn-sm btn-primary" @click="prepareContact"><span class="fas fa-comments"></span> Contact</button></td>
+            <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"></span> Contact</button></td>
           </tr>
         </tbody>
       </table>
     </div>
+    <DemoContact/>
   </div>
 </template>
 
 <script>
+import DemoContact from './DemoContact.vue';
+
 export default {
+  components: {
+    DemoContact
+  },
   computed: {
     client() { return this.$store.state.client; },
     menu() { return this.$store.state.menu; },
     orders() { return this.$store.state.orders; }
   },
   methods: {
-    prepareContact() {
-      alert('Not implemented yet');
+    prepareContact(order) {
+      this.$store.commit('prepareContact', order);
     }
   }
 }

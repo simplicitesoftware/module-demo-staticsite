@@ -4,7 +4,7 @@ import { createStore } from 'vuex';
 
 import simplicite from 'simplicite';
 
-// import 'bootstrap'; Bootstrap JS not needed, uncomment if required
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -103,6 +103,7 @@ const store = createStore({
       }).finally(hideLoading);
     },
     async prepareOrder(state, product) {
+      state.order = {};
       state.product = product;
       state.error = '';
       if (!state.client) return;
@@ -119,10 +120,10 @@ const store = createStore({
       }).finally(hideLoading);
     },
     async placeOrder(state, quantity) {
-      state.order.demoOrdQuantity = quantity;
-      state.order.demoOrdComments = 'Placed on the frontend';
       state.error = '';
       if (!state.client) return;
+      state.order.demoOrdQuantity = quantity;
+      state.order.demoOrdComments = 'Placed on the frontend';
       showLoading();
       app.getBusinessObject('DemoOrder').create(state.order).then(order => {
         state.order = order;
@@ -143,13 +144,28 @@ const store = createStore({
         this.commit('error', e);
       }).finally(hideLoading);
     },
-    async contact(state) {
+    async prepareContact(state, order) {
+      state.contact = {};
       state.error = '';
       if (!state.client) return;
       showLoading();
       app.getBusinessObject('DemoContact').getForCreate().then(contact => {
-        app.debug(contact);
-        state.menu.current = 'contact';
+        contact.demoCtcCliId = state.client.row_id;
+        contact.demoCtcOrdId = order.row_id;
+        contact.demoCtcType = 'OTH';
+        contact.demoCtcCanal = 'WEB';
+        state.contact = contact;
+      }).catch(e => {
+        if (e.status) state.contact = {};
+        this.commit('error', e);
+      }).finally(hideLoading);
+    },
+    async sendContact(state, message) {
+      state.error = '';
+      if (!state.client) return;
+      state.contact.demoCtcMessages = message;
+      showLoading();
+      app.getBusinessObject('DemoContact').create(state.contact).then(contact => {
         state.contact = contact;
       }).catch(e => {
         if (e.status) state.contact = {};

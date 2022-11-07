@@ -8,6 +8,7 @@
             <th scope="col">Date</th>
             <th scope="col">Type</th>
             <th scope="col">Sub-type</th>
+            <th scope="col">Messages</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
@@ -16,6 +17,7 @@
             <td v-text="new Date(Date.parse(c.demoCtcDatetime.replace(' ', 'T'))).toLocaleString()"></td>
             <td>{{c.demoCtcType}}</td>
             <td>{{c.demoCtcSubType}}</td>
+            <td><pre>{{c.demoCtcMessages}}</pre></td>
             <td><span class="badge badge-pill badge-primary">{{c.demoCtcStatus}}</span></td>
           </tr>
         </tbody>
@@ -38,6 +40,12 @@ export default {
 #demo-contacts {
   .card-body {
     overflow-x: auto;
+  }
+  pre {
+    background: #FFFFFF;
+    border: solid .0625rem var(--demo-grey);
+    border-radius: .5rem;
+    padding: .5rem;
   }
 }
 </style>
