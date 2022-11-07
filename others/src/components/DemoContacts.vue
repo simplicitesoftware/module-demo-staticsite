@@ -15,7 +15,7 @@
         <tbody>
           <tr v-for="c in contacts" :key="c.row_id" :id="`contact-${c.row_id}`">
             <td v-text="new Date(Date.parse(c.demoCtcDatetime.replace(' ', 'T'))).toLocaleString()"></td>
-            <td><span class="badge badge-pill badge-primary" :style="`color: ${this.getColors('demoCtcStatus', c.demoCtcStatus).color}; background-color: ${this.getColors('demoCtcStatus', c.demoCtcStatus).bgcolor}`">{{ctc.getFieldListValue('demoCtcStatus', c)}}</span></td>
+            <td><span class="badge badge-pill badge-primary" :style="`color: ${ctc.getFieldListColors('demoCtcStatus', c).color}; background-color: ${ctc.getFieldListColors('demoCtcStatus', c).bgcolor}`">{{ctc.getFieldListValue('demoCtcStatus', c)}}</span></td>
             <td>{{ctc.getFieldListValue('demoCtcType', c)}}</td>
             <td>{{ctc.getFieldListValue('demoCtcCanal', c)}}</td>
             <td><pre>{{c.demoCtcMessages}}</pre></td>
@@ -33,15 +33,6 @@ export default {
     menu() { return this.$store.state.menu; },
     contacts() { return this.$store.state.contacts; },
     ctc() { return this.$simplicite.getBusinessObject('DemoContact'); }
-  },
-  methods: {
-    // Temporary
-    getColors(field, code) {
-      for (const l of this.ctc.getField(field).listOfValues)
-        if (l.code == code)
-          return { color: l.color, bgcolor: l.bgcolor };
-      return { color: 'inherit', bgcolor: 'inherit' };
-    }
   }
 }
 </script>

@@ -17,7 +17,7 @@
           <tr v-for="o in orders" :key="o.row_id" :id="`order-${o.row_id}`">
             <th scope="row">{{o.demoOrdNumber}}</th>
             <td v-text="new Date(Date.parse(o.demoOrdDate)).toLocaleDateString()"></td>
-            <td><span class="badge badge-pill badge-primary" :style="`color: ${this.getColors('demoOrdStatus', o.demoOrdStatus).color}; background-color: ${this.getColors('demoOrdStatus', o.demoOrdStatus).bgcolor}`">{{ord.getFieldListValue('demoOrdStatus', o)}}</span></td>
+            <td><span class="badge badge-pill badge-primary" :style="`color: ${ord.getFieldListColors('demoOrdStatus', o).color}; background-color: ${ord.getFieldListColors('demoOrdStatus', o).bgcolor}`">{{ord.getFieldListValue('demoOrdStatus', o)}}</span></td>
             <td>{{o.demoOrdPrdId__demoPrdName}} ({{o.demoOrdPrdId__demoPrdReference}})</td>
             <td>{{o.demoOrdQuantity}}</td>
             <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"></span> Contact</button></td>
@@ -45,13 +45,6 @@ export default {
   methods: {
     prepareContact(order) {
       this.$store.commit('prepareContact', order);
-    },
-    // Temporary: will be in the simplicite lib >= 2.2.29
-    getColors(field, code) {
-      for (const l of this.ord.getField(field).listOfValues)
-        if (l.code == code)
-          return { color: l.color, bgcolor: l.bgcolor };
-      return { color: 'inherit', bgcolor: 'inherit' };
     }
   }
 }
