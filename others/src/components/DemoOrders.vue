@@ -7,9 +7,9 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Date</th>
+            <th scope="col">Status</th>
             <th scope="col">Product</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Status</th>
             <th scope="col">Contacts</th>
           </tr>
         </thead>
@@ -17,9 +17,9 @@
           <tr v-for="o in orders" :key="o.row_id" :id="`order-${o.row_id}`">
             <th scope="row">{{o.demoOrdNumber}}</th>
             <td v-text="new Date(Date.parse(o.demoOrdDate)).toLocaleDateString()"></td>
+            <td><span class="badge badge-pill badge-primary" :style="`color: ${this.getColors(o.demoOrdStatus).color}; background-color: ${this.getColors(o.demoOrdStatus).bgcolor}`">{{ord.getFieldListValue('demoOrdStatus', o)}}</span></td>
             <td>{{o.demoOrdPrdId__demoPrdName}} ({{o.demoOrdPrdId__demoPrdReference}})</td>
             <td>{{o.demoOrdQuantity}}</td>
-            <td><span class="badge badge-pill badge-primary">{{o.demoOrdStatus}}</span></td>
             <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"></span> Contact</button></td>
           </tr>
         </tbody>
@@ -39,11 +39,19 @@ export default {
   computed: {
     client() { return this.$store.state.client; },
     menu() { return this.$store.state.menu; },
-    orders() { return this.$store.state.orders; }
+    orders() { return this.$store.state.orders; },
+    ord() { return this.$simplicite.getBusinessObject('DemoOrder'); }
   },
   methods: {
     prepareContact(order) {
       this.$store.commit('prepareContact', order);
+    },
+    // Temporary
+    getColors(s) {
+      for (const l of this.ord.getField('demoOrdStatus').listOfValues)
+        if (l.code == s)
+          return { color: l.color, bgcolor: l.bgcolor };
+      return { color: 'inherit', bgcolor: 'inherit' };
     }
   }
 }

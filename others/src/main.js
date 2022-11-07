@@ -32,6 +32,7 @@ const store = createStore({
   state() {
     return {
       version: process.env.VUE_APP_VERSION,
+      app: {},
       menu: {
         current: 'products',
         items: [
@@ -200,7 +201,19 @@ const store = createStore({
 
 // Temporary: use a named technical user
 app.login({ username: 'website', password: 'simplicite' }).then(() => {
-  const vueApp = createApp(DemoApp);
-  vueApp.use(store);
-  vueApp.mount('body');
+  app.getBusinessObject('DemoOrder').getMetadata().then(omd => {
+    console.log(omd);
+    app.getBusinessObject('DemoContact').getMetadata().then(cmd => {
+      console.log(cmd);
+      console.log(app.getBusinessObject('DemoContact').getField('demoCtcStatus'));
+      const vueApp = createApp(DemoApp);
+      vueApp.config.globalProperties.$simplicite = app;
+      vueApp.use(store);
+      vueApp.mount('body');
+    }).catch(e => {
+      console.error(e);
+    });
+  }).catch(e => {
+    console.error(e);
+  });
 });
