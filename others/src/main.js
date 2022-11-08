@@ -56,9 +56,9 @@ const store = createStore({
   mutations: {
     error(state, e) {
       app.error(e);
-      if (e.status || e.level)
-        state.error = e.message;
-      else
+      if (e.status || e.level) {
+        state.error = e.messages ? e.messages.join('<br/>') : e.message;
+      } else
         state.error = 'Network not available, please retry later...'
     },
     selectMenu(state, name) {
@@ -127,8 +127,10 @@ const store = createStore({
       state.order.demoOrdComments = 'Placed on the frontend';
       showLoading();
       app.getBusinessObject('DemoOrder').create(state.order).then(order => {
+        console.log(order);
         state.order = order;
       }).catch(e => {
+        console.log(e);
         if (e.status) state.order = {};
         this.commit('error', e);
       }).finally(hideLoading);

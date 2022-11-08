@@ -3,7 +3,7 @@
     <DemoMenu/>
     <div id="demo-page">
       <DemoClient/>
-      <div id="demo-error" class="alert alert-danger" v-if="error">{{error}}</div>
+      <div id="demo-error" class="alert alert-danger" v-if="error" v-html="error"></div>
       <div id="demo-loading"><span class="fas fa-spinner"></span> Loading...</div>
       <DemoProducts/>
       <DemoOrder/>

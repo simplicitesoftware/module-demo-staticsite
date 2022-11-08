@@ -14,7 +14,7 @@
               <button class="btn btn-primary" @click="placeOrder"><span class="fas fa-check"></span>&nbsp;Order</button>
             </div>
           </div>
-          <div class="alert alert-info" v-if="order.row_id != '0'">
+          <div class="alert alert-info" v-if="!error && order.row_id != '0'">
             Your order #{{order.demoOrdNumber}} has been placed. <strong>Thank you!</strong>
           </div>
         </div>
