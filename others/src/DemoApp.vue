@@ -74,6 +74,9 @@ export default {
     max-width: 16rem;
     margin: 0 auto;
   }
+  .alert {
+    border-radius: 1rem;
+  }
   .media {
     padding: 1rem;
     margin-bottom: .5rem;
