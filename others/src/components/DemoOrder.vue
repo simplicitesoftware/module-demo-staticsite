@@ -43,7 +43,6 @@ export default {
   methods: {
     placeOrder() {
       this.$store.commit('placeOrder', this.quantity);
-      this.quantity = 1;
     }
   }
 }

@@ -127,11 +127,8 @@ const store = createStore({
       state.order.demoOrdComments = 'Placed on the frontend';
       showLoading();
       app.getBusinessObject('DemoOrder').create(state.order).then(order => {
-        console.log(order);
         state.order = order;
       }).catch(e => {
-        console.log(e);
-        if (e.status) state.order = {};
         this.commit('error', e);
       }).finally(hideLoading);
     },
@@ -171,7 +168,6 @@ const store = createStore({
       app.getBusinessObject('DemoContact').create(state.contact).then(contact => {
         state.contact = contact;
       }).catch(e => {
-        if (e.status) state.contact = {};
         this.commit('error', e);
       }).finally(hideLoading);
     },
