@@ -29,11 +29,16 @@
     "less-loader": "^11.1.0",
     "npm-check-updates": "^16.6.2",
     "serve": "^14.1.2",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "postcss-less": "^6.0.0",
     "vue-template-compiler": "^2.7.14"
   },
   "scripts": {
     "ncu": "ncu",
     "lint": "vue-cli-service lint",
+    "stylelint": "stylelint src/**.vue",
     "start": "vue-cli-service --host=0.0.0.0 --port=3000 serve --mode=development",
     "build": "vue-cli-service build --mode=production && rm -f ../resources/ObjectExternal/DemoStaticSite/SITE.zip && cd dist && jszip-cli add --ignore *.LICENSE.txt --output ../../resources/ObjectExternal/DemoStaticSite/SITE.zip .",
     "serve": "serve -l 3000 dist"

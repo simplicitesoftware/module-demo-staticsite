@@ -91,7 +91,7 @@ export default {
     }
   }
   .badge-primary {
-     background: var(--demo-blue);
+    background: var(--demo-blue);
   }
 }
 #demo-error {
@@ -103,8 +103,8 @@ export default {
   color: var(--demo-black);
 }
 .page-minified() {
-    margin-left: 3.5rem;
-    padding: .5rem;
+  margin-left: 3.5rem;
+  padding: .5rem;
 }
 #demo-body.minified {
   #demo-page {
