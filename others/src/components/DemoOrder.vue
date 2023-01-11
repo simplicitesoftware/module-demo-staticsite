@@ -1,25 +1,26 @@
 <template>
-  <div id="demo-order" v-show="client.row_id && menu.current == 'order'" class="card">
+  <div v-show="client.row_id && menu.current == 'order'" id="demo-order" class="card">
     <div class="card-body">
-      <h3 class="card-title"><span class="fas fa-cart-shopping"></span>&nbsp;Place order</h3>
+      <h3 class="card-title"><span class="fas fa-cart-shopping"/>&nbsp;Place order</h3>
       <div class="row">
         <div class="col-sm-5 order">
-          <img v-if="product.demoPrdPicture" :alt="product.demoPrdReference" :src="'data:' + product.demoPrdPicture.mime + ';base64,' + product.demoPrdPicture.content"/>
-          <h1>{{product.demoPrdName}}</h1>
-          <h3>{{product.demoPrdReference}}</h3>
-          <h5>{{product.demoPrdDescription}}</h5>
-          <div class="input-group" v-if="order.row_id == '0'">
-            <input type="text" class="form-control" placeholder="Quantity" v-model="quantity">
+          <img v-if="product.demoPrdPicture" :alt="product.demoPrdReference" :src="'data:' + product.demoPrdPicture.mime + ';base64,' + product.demoPrdPicture.content">
+          <h1>{{ product.demoPrdName }}</h1>
+          <h3>{{ product.demoPrdReference }}</h3>
+          <h5>{{ product.demoPrdDescription }}</h5>
+          <div v-if="order.row_id == '0'" class="input-group">
+            <input v-model="quantity" type="text" class="form-control" placeholder="Quantity">
             <div class="input-group-append">
-              <button class="btn btn-primary" @click="placeOrder"><span class="fas fa-check"></span>&nbsp;Order</button>
+              <button class="btn btn-primary" @click="placeOrder"><span class="fas fa-check"/>&nbsp;Order</button>
             </div>
           </div>
-          <div class="alert alert-info" v-if="!error && order.row_id != '0'">
-            Your order #{{order.demoOrdNumber}} has been placed. <strong>Thank you!</strong>
+          <div v-if="!error && order.row_id != '0'" class="alert alert-info">
+            Your order #{{ order.demoOrdNumber }} has been placed. <strong>Thank you!</strong>
           </div>
         </div>
         <div class="col-sm-7 doc">
-          <p class="card-text" v-html="product.demoPrdDocumentation"></p>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p class="card-text" v-html="product.demoPrdDocumentation"/>
         </div>
       </div>
     </div>
@@ -45,7 +46,7 @@ export default {
       this.$store.commit('placeOrder', this.quantity);
     }
   }
-}
+};
 </script>
 
 <style lang="less">

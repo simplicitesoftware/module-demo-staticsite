@@ -3,8 +3,8 @@
     <DemoMenu/>
     <div id="demo-page">
       <DemoClient/>
-      <div id="demo-error" class="alert alert-danger" v-if="error" v-html="error"></div>
-      <div id="demo-loading"><span class="fas fa-spinner"></span> Loading...</div>
+      <div v-if="error" id="demo-error" class="alert alert-danger" v-text="error"/>
+      <div id="demo-loading"><span class="fas fa-spinner"/> Loading...</div>
       <DemoProducts/>
       <DemoOrder/>
       <DemoOrders/>
@@ -28,13 +28,13 @@ export default {
   components: {
     DemoMenu, DemoClient, DemoProducts, DemoOrder, DemoOrders, DemoContacts, DemoNews
   },
-  mounted() {
-    this.$store.commit('selectMenu', 'products');
-  },
   computed: {
     error() { return this.$store.state.error; }
+  },
+  mounted() {
+    this.$store.commit('selectMenu', 'products');
   }
-}
+};
 </script>
 
 <style lang="less">

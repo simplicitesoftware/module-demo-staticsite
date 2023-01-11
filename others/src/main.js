@@ -3,6 +3,7 @@ import { createApp } from 'vue';
 import { createStore } from 'vuex';
 
 import simplicite from 'simplicite';
+import module from '../../module-info.json';
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +14,7 @@ import DemoApp from './DemoApp.vue';
 
 const app = simplicite.session(process.env.VUE_APP_URL ? { url: process.env.VUE_APP_URL, debug: true } : {});
 
-app.info('Version: ' + process.env.VUE_APP_VERSION);
+app.info('Version: ' + module.version);
 app.debug(app.parameters);
 
 const showLoading = () => {
@@ -31,15 +32,15 @@ const hideLoading = () => {
 const store = createStore({
   state() {
     return {
-      version: process.env.VUE_APP_VERSION,
+      version: module.version,
       app: {},
       menu: {
         current: 'products',
         items: [
-          { name: "products", icon: "gift", label: "Products", selected: true },
-          { name: "orders", icon: "cart-shopping", label: "My orders", disabled: true, client: true },
-          { name: "contacts", icon: "comments", label: "My contacts", disabled: true, client: true  },
-          { name: "news", icon: "rss", label: "News" }
+          { name: 'products', icon: 'gift', label: 'Products', selected: true },
+          { name: 'orders', icon: 'cart-shopping', label: 'My orders', disabled: true, client: true },
+          { name: 'contacts', icon: 'comments', label: 'My contacts', disabled: true, client: true  },
+          { name: 'news', icon: 'rss', label: 'News' }
         ]
       },
       error: '',
@@ -51,7 +52,7 @@ const store = createStore({
       contacts: [],
       contact: {},
       news: []
-    }
+    };
   },
   mutations: {
     error(state, e) {
@@ -59,7 +60,7 @@ const store = createStore({
       if (e.status || e.level) {
         state.error = e.messages ? e.messages.join('<br/>') : e.message;
       } else
-        state.error = 'Network not available, please retry later...'
+        state.error = 'Network not available, please retry later...';
     },
     selectMenu(state, name) {
       state.error = '';

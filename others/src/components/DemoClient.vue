@@ -1,13 +1,13 @@
 <template>
   <div id="demo-client" class="card">
     <div class="card-body">
-      <div class="input-group" v-if="!client.row_id">
-        <input type="text" class="form-control" placeholder="Your customer code" v-model="clientCode">
+      <div v-if="!client.row_id" class="input-group">
+        <input v-model="clientCode" type="text" class="form-control" placeholder="Your customer code">
         <div class="input-group-append">
-          <button class="btn btn-primary" @click="searchClient"><span class="fas fa-sign-in"></span>&nbsp;Sign in</button>
+          <button class="btn btn-primary" @click="searchClient"><span class="fas fa-sign-in"/>&nbsp;Sign in</button>
         </div>
       </div>
-      <div v-if="client.row_id"><span class="fas fa-user"></span>&nbsp;Hello {{client.demoCliFirstname}} {{client.demoCliLastname}}</div>
+      <div v-if="client.row_id"><span class="fas fa-user"/>&nbsp;Hello {{ client.demoCliFirstname }} {{ client.demoCliLastname }}</div>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
       this.$store.commit('client', this.clientCode.toUpperCase());
     }
   }
-}
+};
 </script>
 
 <style lang="less">

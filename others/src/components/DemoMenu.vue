@@ -1,14 +1,14 @@
 <template>
   <nav id="demo-menu">
-    <img alt="Logo" class="clickable" @click="toggle" src="/img/logo.png"/>
+    <img alt="Logo" class="clickable" src="/img/logo.png" @click="toggle">
     <ul>
-      <li :class="{ selected: item.selected , disabled: item.disabled }" v-for="item in menu.items" :key="item.name" :id="`demo-menu-${item.name}`" @click="click(item.name)">
-        <span class="label"><span :class="`fas fa-${item.icon}`"></span>&nbsp;{{ item.label }}</span>
-        <span class="icononly" :title="item.label"><span :class="`fas fa-${item.icon}`"></span></span>
+      <li v-for="item in menu.items" :id="`demo-menu-${item.name}`" :key="item.name" :class="{ selected: item.selected , disabled: item.disabled }" @click="click(item.name)">
+        <span class="label"><span :class="`fas fa-${item.icon}`"/>&nbsp;{{ item.label }}</span>
+        <span class="icononly" :title="item.label"><span :class="`fas fa-${item.icon}`"/></span>
       </li>
       <li onclick="document.location.assign('/ui')">
-        <span class="label"><span class="fas fa-gear"></span>&nbsp;Administration</span>
-        <span class="icononly" title="Administration"><span class="fas fa-gear"></span></span>
+        <span class="label"><span class="fas fa-gear"/>&nbsp;Administration</span>
+        <span class="icononly" title="Administration"><span class="fas fa-gear"/></span>
       </li>
     </ul>
   </nav>
@@ -27,7 +27,7 @@ export default {
       this.$store.commit('selectMenu', name);
     }
   }
-}
+};
 </script>
 
 <style lang="less">
