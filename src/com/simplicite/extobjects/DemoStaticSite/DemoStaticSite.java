@@ -10,7 +10,6 @@ import com.simplicite.util.tools.Parameters;
 public class DemoStaticSite extends com.simplicite.webapp.web.StaticSiteExternalObject {
 	private static final long serialVersionUID = 1L;
 
-	/* TODO: activate with 5.2.8
 	private static final String NOT_FOUND = "notfound.html";
 
 	@Override
@@ -27,5 +26,4 @@ public class DemoStaticSite extends com.simplicite.webapp.web.StaticSiteExternal
 			return super.notfound(params);
 		}
 	}
-	*/
 }
