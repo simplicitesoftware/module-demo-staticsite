@@ -37,8 +37,7 @@
   },
   "scripts": {
     "ncu": "ncu",
-    "lint": "vue-cli-service lint",
-    "stylelint": "stylelint src/**.vue",
+    "lint": "vue-cli-service lint && stylelint src/**.vue",
     "start": "vue-cli-service --host=0.0.0.0 --port=3000 serve --mode=development",
     "build": "vue-cli-service build --mode=production && rm -f ../resources/ObjectExternal/DemoStaticSite/SITE.zip && cd dist && jszip-cli add --ignore *.LICENSE.txt --output ../../resources/ObjectExternal/DemoStaticSite/SITE.zip .",
     "serve": "serve -l 3000 dist"
