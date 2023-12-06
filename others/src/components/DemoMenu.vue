@@ -30,8 +30,8 @@ export default {
 };
 </script>
 
-<style lang="less">
-#demo-menu {
+<style lang="less" scoped="true">
+nav {
   background: var(--demo-blue);
   color: #FFFFFF;
   position: fixed;

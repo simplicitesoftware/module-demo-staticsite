@@ -50,10 +50,8 @@ export default {
 };
 </script>
 
-<style lang="less">
-#demo-orders {
-  .card-body {
-    overflow-x: auto;
-  }
+<style lang="less" scoped="true">
+.card-body {
+  overflow-x: auto;
 }
 </style>

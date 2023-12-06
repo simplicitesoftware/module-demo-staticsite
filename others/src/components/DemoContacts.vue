@@ -37,11 +37,9 @@ export default {
 };
 </script>
 
-<style lang="less">
-#demo-contacts {
-  .card-body {
-    overflow-x: auto;
-  }
+<style lang="less" scoped="true">
+.card-body {
+  overflow-x: auto;
   pre {
     background: #FFFFFF;
     border: solid .0625rem var(--demo-grey);

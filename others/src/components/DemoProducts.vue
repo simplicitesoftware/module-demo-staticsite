@@ -1,6 +1,6 @@
 <template>
-  <div v-show="menu.current == 'products'" id="demo-products" class="row">
-    <div v-for="p in products" :id="`product-${p.row_id}`" :key="p.row_id" class="col-sm-3">
+  <div v-show="menu.current == 'products'" id="demo-products" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
+    <div v-for="p in products" :id="`product-${p.row_id}`" :key="p.row_id" class="col">
       <div class="card">
         <img v-if="p.demoPrdPicture" :alt="p.demoPrdReference" :src="'data:' + p.demoPrdPicture.mime + ';base64,' + p.demoPrdPicture.content" class="card-img">
         <div class="card-body text-center">
@@ -30,11 +30,11 @@ export default {
 };
 </script>
 
-<style lang="less">
-#demo-products {
+<style lang="less" scoped="true">
+row {
   padding: 0 1rem;
-  .col-sm-3 {
-    padding: .25rem;
-  }
+}
+.col {
+  padding: .25rem;
 }
 </style>

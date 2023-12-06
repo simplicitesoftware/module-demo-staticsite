@@ -49,19 +49,17 @@ export default {
 };
 </script>
 
-<style lang="less">
-#demo-order {
-  .order {
-    margin-bottom: 1rem;
-  }
-  .doc {
-    background: var(--demo-lightgrey);
-    padding: 1rem;
-    border: solid .0625rem var(--color-grey);
-    border-radius: 1rem;
-    img {
-      max-width: 100%;
-    }
+<style lang="less" scoped="true">
+.order {
+  margin-bottom: 1rem;
+}
+.doc {
+  background: var(--demo-lightgrey);
+  padding: 1rem;
+  border: solid .0625rem var(--color-grey);
+  border-radius: 1rem;
+  img {
+    max-width: 100%;
   }
 }
 </style>

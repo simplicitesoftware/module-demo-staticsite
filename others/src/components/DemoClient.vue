@@ -28,8 +28,8 @@ export default {
 };
 </script>
 
-<style lang="less">
-#demo-client {
+<style lang="less" scoped="true">
+.card {
   margin: 0 0 .5rem 0;
   color: var(--demo-blue);
 }
