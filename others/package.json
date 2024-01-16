@@ -13,7 +13,7 @@
     "core-js": "^3.35.0",
     "jquery": "^3.7.1",
     "simplicite": "^3.0.0",
-    "vue": "^3.4.7",
+    "vue": "^3.4.14",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
@@ -24,9 +24,9 @@
     "@vue/cli-service": "^5.0.8",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.56.0",
-    "eslint-plugin-vue": "^9.19.2",
+    "eslint-plugin-vue": "^9.20.1",
     "less": "^4.2.0",
-    "less-loader": "^11.1.4",
+    "less-loader": "^12.0.0",
     "npm-check-updates": "^16.14.12",
     "postcss-less": "^6.0.0",
     "serve": "^14.2.1",
