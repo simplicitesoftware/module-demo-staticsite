@@ -1,6 +1,6 @@
 <template>
   <nav id="demo-menu">
-    <img alt="Logo" class="clickable" src="/img/logo.png" @click="toggle">
+    <img alt="Logo" class="clickable" src="/img/logo.svg" @click="toggle">
     <ul>
       <li v-for="item in menu.items" :id="`demo-menu-${item.name}`" :key="item.name" :class="{ selected: item.selected , disabled: item.disabled }" @click="click(item.name)">
         <span class="label"><span :class="`fas fa-${item.icon}`"/>&nbsp;{{ item.label }}</span>
@@ -41,9 +41,10 @@ nav {
   width: 16rem;
   border-radius: 0 1rem 1rem 0;
   img {
-    margin: 2rem 3rem 0 3rem;
+    margin: 2rem 3rem 1rem 3rem;
     width: 10rem;
     height: 10rem;
+    filter: invert(100%);
   }
   ul {
     list-style-type: none;
