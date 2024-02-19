@@ -2,7 +2,7 @@
   <div id="demo-client" class="card">
     <div class="card-body">
       <div v-if="!client.row_id" class="input-group">
-        <input v-model="clientCode" type="text" class="form-control" placeholder="Your customer code">
+        <input v-model="clientCode" type="text" class="form-control" placeholder="Your customer code" @keyup.enter="searchClient">
         <div class="input-group-append">
           <button class="btn btn-primary" @click="searchClient"><span class="fas fa-sign-in"/>&nbsp;Sign in</button>
         </div>
