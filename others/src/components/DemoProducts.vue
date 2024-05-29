@@ -2,7 +2,7 @@
   <div v-show="menu.current == 'products'" id="demo-products" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
     <div v-for="p in products" :id="`product-${p.row_id}`" :key="p.row_id" class="col">
       <div class="card">
-        <img v-if="p.demoPrdPicture" :alt="p.demoPrdReference" :src="'data:' + p.demoPrdPicture.mime + ';base64,' + p.demoPrdPicture.content" class="card-img">
+        <img v-if="p.demoPrdPicture" :alt="p.demoPrdName" :src="'data:' + p.demoPrdPicture.mime + ';base64,' + p.demoPrdPicture.content" class="card-img">
         <div class="card-body text-center">
           <h3 class="card-title">{{ p.demoPrdName }}</h3>
           <h5 class="card-title">{{ p.demoPrdReference }}</h5>
