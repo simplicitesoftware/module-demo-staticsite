@@ -40,7 +40,7 @@ export default {
 <style lang="less">
 :root {
   --demo-blue: #2362A5;
-  --demo-orange: #A57C23;
+  --demo-orange: #A27003;
   --demo-green: #167830;
   --demo-red: #6D2A2A;
   --demo-lightgrey: #F0F0F0;

@@ -61,7 +61,8 @@ nav {
         display: none;
       }
       &.disabled {
-        color: var(--demo-darkgrey);
+        color: var(--demo-grey);
+        cursor: not-allowed;
       }
       &:not(.disabled) {
         cursor: pointer;
