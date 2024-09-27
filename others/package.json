@@ -12,8 +12,8 @@
     "bootstrap": "^5.3.3",
     "core-js": "^3.38.1",
     "jquery": "^3.7.1",
-    "simplicite": "^3.0.1",
-    "vue": "^3.5.0",
+    "simplicite": "^3.0.2",
+    "vue": "^3.5.9",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "eslint-plugin-vue": "^9.28.0",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
-    "npm-check-updates": "^17.1.1",
+    "npm-check-updates": "^17.1.3",
     "postcss-less": "^6.0.0",
     "serve": "^14.2.3",
     "stylelint": "^16.9.0",
