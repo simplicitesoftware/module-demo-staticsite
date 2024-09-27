@@ -1,7 +1,7 @@
 {
   "name": "demo-staticstite",
   "description": "Vue.js static site frontend for the demo application",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "author": "Simplicite Software <contact@simplicitesoftware.com> (http://www.simplicitesoftware.com/)",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "bootstrap": "^5.3.3",
     "core-js": "^3.38.1",
     "jquery": "^3.7.1",
-    "simplicite": "^3.0.2",
+    "simplicite": "^3.0.3",
     "vue": "^3.5.9",
     "vuex": "^4.1.0"
   },
