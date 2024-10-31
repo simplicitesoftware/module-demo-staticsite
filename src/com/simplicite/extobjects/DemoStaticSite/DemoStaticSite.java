@@ -13,8 +13,7 @@ public class DemoStaticSite extends com.simplicite.webapp.web.StaticSiteExternal
 	private static final String NOT_FOUND = "notfound.html";
 
 	@Override
-	public Object notfound(Parameters params)
-	{
+	public Object notfound(Parameters params) {
 		AppLog.info("Not found on: " + params.getBaseLocation(), getGrant());
 		try {
 			if (NOT_FOUND.equals(params.getURI())) // Avoid infinite loop
