@@ -8,10 +8,12 @@
 		<mdl_version>5</mdl_version>
 		<mdl_prefix>demo</mdl_prefix>
 		<mdl_url><![CDATA[{
-	"type": "git",
-	"origin": {
-		"uri": "https://github.com/simplicitesoftware/module-demo-staticsite.git"
-	}
+    "maven": {
+        "checkstyle": true,
+        "repositoryUrl": "https://platform.simplicite.io/5.3/maven"
+    },
+    "origin": {"uri": "https://github.com/simplicitesoftware/module-demo-staticsite.git"},
+    "type": "git"
 }]]></mdl_url>
 		<mdl_type>C</mdl_type>
 		<mdl_comment><![CDATA[Custom static frontend for the order management demo]]></mdl_comment>
