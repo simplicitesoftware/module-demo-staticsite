@@ -17,7 +17,7 @@
     "vuex": "^4.1.0"
   },
   "devDependencies": {
-    "@ffflorian/jszip-cli": "^3.7.2",
+    "@ffflorian/jszip-cli": "^3.7.3",
     "@vue/cli": "^5.0.8",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
@@ -27,7 +27,7 @@
     "eslint-plugin-vue": "^9.30.0",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
-    "npm-check-updates": "^17.1.9",
+    "npm-check-updates": "^17.1.10",
     "postcss-less": "^6.0.0",
     "serve": "^14.2.4",
     "stylelint": "^16.10.0",
