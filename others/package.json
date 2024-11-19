@@ -8,12 +8,12 @@
     "url": "https://github.com/simplicitesoftware/module-demo-staticsite.git"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@fortawesome/fontawesome-free": "^6.7.0",
     "bootstrap": "^5.3.3",
     "core-js": "^3.39.0",
     "jquery": "^3.7.1",
     "simplicite": "^3.0.3",
-    "vue": "^3.5.12",
+    "vue": "^3.5.13",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
