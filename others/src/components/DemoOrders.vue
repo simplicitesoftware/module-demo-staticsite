@@ -20,7 +20,7 @@
             <td><span class="badge badge-pill badge-primary" :style="`color: ${ord.getFieldListColors('demoOrdStatus', o).color}; background-color: ${ord.getFieldListColors('demoOrdStatus', o).bgcolor}`">{{ ord.getFieldListValue('demoOrdStatus', o) }}</span></td>
             <td>{{ o.demoOrdPrdId__demoPrdName }} ({{ o.demoOrdPrdId__demoPrdReference }})</td>
             <td>{{ o.demoOrdQuantity }}</td>
-            <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"/> Contact</button></td>
+            <td><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"/> Contact</button></td>
           </tr>
         </tbody>
       </table>

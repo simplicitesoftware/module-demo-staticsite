@@ -11,7 +11,7 @@
         </div>
         <div class="modal-footer">
           <button v-if="contact.row_id == '0'" type="button" class="btn btn-primary" @click="sendContact">Send</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

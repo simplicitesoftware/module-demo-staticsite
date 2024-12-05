@@ -170,7 +170,7 @@ const store = createStore({
       if (!state.client) return;
       try {
         showLoading();
-        const contact = app.getBusinessObject('DemoContact').getForCreate();
+        const contact = await app.getBusinessObject('DemoContact').getForCreate();
         contact.demoCtcCliId = state.client.row_id;
         contact.demoCtcOrdId = order.row_id;
         contact.demoCtcType = 'OTH';
