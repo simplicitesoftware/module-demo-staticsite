@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="less" scoped="true">
-row {
+.row {
   padding: 0 1rem;
 }
 .col {

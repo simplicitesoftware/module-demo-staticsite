@@ -43,7 +43,7 @@ const store = createStore({
         items: [
           { name: 'products', icon: 'gift', label: 'Products', selected: true },
           { name: 'orders', icon: 'cart-shopping', label: 'My orders', disabled: true, client: true },
-          { name: 'contacts', icon: 'comments', label: 'My contacts', disabled: true, client: true  },
+          { name: 'contacts', icon: 'comments', label: 'My contacts', disabled: true, client: true },
           { name: 'news', icon: 'rss', label: 'News' }
         ]
       },
