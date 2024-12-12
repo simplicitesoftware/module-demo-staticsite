@@ -240,6 +240,6 @@ const store = createStore({
     vueApp.use(store);
     vueApp.mount('body');
   } catch (e) {
-    console.error(e);
+    app.error(e);
   }
 })();

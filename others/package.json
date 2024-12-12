@@ -39,7 +39,7 @@
   },
   "scripts": {
     "ncu": "ncu",
-    "eslint": "eslint src/**/*.js src/**/*.vue",
+    "eslint": "eslint *.mjs src/**/*.js src/**/*.vue",
     "stylelint": "stylelint src/**/*.vue",
     "lint": "npm run eslint && npm run stylelint",
     "start": "vite --mode development",
