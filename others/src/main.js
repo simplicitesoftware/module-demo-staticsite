@@ -16,9 +16,9 @@ import DemoApp from './DemoApp.vue';
   navigator.serviceWorker.register('/demo-serviceworker.js');
 }*/
 
-const app = simplicite.session(process.env.VUE_APP_URL ? { url: process.env.VUE_APP_URL, debug: true } : {});
+const app = simplicite.session(import.meta.env.VITE_DEMO_URL ? { url: import.meta.env.VITE_DEMO_URL, debug: true } : {});
 
-app.info('Version: ' + module.version);
+app.info(`Version: ${module.version}`);
 app.debug(app.parameters);
 
 const showLoading = () => {
