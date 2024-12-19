@@ -16,7 +16,44 @@
     "type": "git"
 }]]></mdl_url>
 		<mdl_type>C</mdl_type>
-		<mdl_comment><![CDATA[Custom static frontend for the order management demo]]></mdl_comment>
+		<mdl_comment><![CDATA[### Introduction
+
+This module contains a custom static public frontend for the order management demo.
+
+The frontend itself is a [Vue.js](Vue.js) applications located in the `others` folder.
+
+### Prerequisites
+
+The `Demo` module **must** be installed and configured before importing this addon module.
+
+### Import
+
+To import this module:
+
+- Create a module named `DemoStaticSite`
+- Set the settings as:
+
+```json
+{
+	"type": "git",
+	"origin": {
+		"uri": "https://github.com/simplicitesoftware/module-demo-staticsite.git"
+	}
+}
+```
+
+- Click on the _Import module_ button
+
+### Configuration
+
+You can make it the public page by adding this mapping to the `URI_MAPPINGS` system parameter:
+
+```json
+[
+    (...)
+    { "source": "^(.*)$", "destination": "/ext/DemoStaticSite$1" }
+]
+```]]></mdl_comment>
 	</data>
 </object>
 <object>
