@@ -4,10 +4,10 @@
       <div v-if="!client.row_id" class="input-group">
         <input v-model="clientCode" type="text" class="form-control" placeholder="Your customer code" @keyup.enter="searchClient">
         <div class="input-group-append">
-          <button class="btn btn-primary" @click="searchClient"><span class="fas fa-sign-in"/>&nbsp;Sign in</button>
+          <button class="btn btn-primary" @click="searchClient"><span class="fas fa-sign-in"></span>&nbsp;Sign in</button>
         </div>
       </div>
-      <div v-if="client.row_id"><span class="fas fa-user"/>&nbsp;Hello {{ client.demoCliFirstname }} {{ client.demoCliLastname }}</div>
+      <div v-if="client.row_id"><span class="fas fa-user"></span>&nbsp;Hello {{ client.demoCliFirstname }} {{ client.demoCliLastname }}</div>
     </div>
   </div>
 </template>

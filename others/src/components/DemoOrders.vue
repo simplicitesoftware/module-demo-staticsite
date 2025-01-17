@@ -1,7 +1,7 @@
 <template>
   <div v-show="client.row_id && menu.current == 'orders'" id="demo-orders" class="card">
     <div class="card-body">
-      <h3 class="card-title"><span class="fas fa-cart-shopping"/>&nbsp;My orders <sup class="badge badge-primary">{{ orders.length }}</sup></h3>
+      <h3 class="card-title"><span class="fas fa-cart-shopping"></span>&nbsp;My orders <sup class="badge badge-primary">{{ orders.length }}</sup></h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -20,7 +20,7 @@
             <td><span class="badge badge-pill badge-primary" :style="`color: ${ord.getFieldListColors('demoOrdStatus', o).color}; background-color: ${ord.getFieldListColors('demoOrdStatus', o).bgcolor}`">{{ ord.getFieldListValue('demoOrdStatus', o) }}</span></td>
             <td>{{ o.demoOrdPrdId__demoPrdName }} ({{ o.demoOrdPrdId__demoPrdReference }})</td>
             <td>{{ o.demoOrdQuantity }}</td>
-            <td><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"/> Contact</button></td>
+            <td><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#demo-contact" @click="prepareContact(o)"><span class="fas fa-comments"></span> Contact</button></td>
           </tr>
         </tbody>
       </table>

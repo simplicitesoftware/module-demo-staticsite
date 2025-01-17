@@ -1,7 +1,7 @@
 <template>
   <div v-show="client.row_id && menu.current == 'contacts'" id="demo-contacts" class="card">
     <div class="card-body">
-      <h3 class="card-title"><span class="fas fa-comments"/>&nbsp;My contacts <sup class="badge badge-primary">{{ contacts.length }}</sup></h3>
+      <h3 class="card-title"><span class="fas fa-comments"></span>&nbsp;My contacts <sup class="badge badge-primary">{{ contacts.length }}</sup></h3>
       <table class="table table-striped">
         <thead>
           <tr>
