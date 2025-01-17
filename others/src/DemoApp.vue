@@ -122,7 +122,7 @@ export default {
 }
 * {
   scrollbar-color: var(--demo-grey) transparent;
-  scrollbar-width: .5rem;
+  scrollbar-width: thin;
 }
 ::-webkit-scrollbar {
   width: .5rem;
