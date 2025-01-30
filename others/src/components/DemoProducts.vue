@@ -8,7 +8,7 @@
           <h5 class="card-title">{{ p.demoPrdReference }}</h5>
           <!-- eslint-disable-next-line vue/no-v-html -->
           <p class="card-text text-muted" v-html="p.demoPrdDescription"/>
-          <button v-if="client.row_id" class="btn btn-primary" @click="order(p)"><span class="fas fa-cart-shopping"></span> Order</button>
+          <button v-if="client.row_id" class="btn btn-primary" @click="order(p)"><span class="fas fa-cart-shopping"/> Order</button>
         </div>
       </div>
     </div>

@@ -7,8 +7,8 @@
         <span class="icononly" :title="item.label"><span :class="`fas fa-${item.icon}`"/></span>
       </li>
       <li onclick="document.location.assign('/ui')">
-        <span class="label"><span class="fas fa-gear"></span>&nbsp;Administration</span>
-        <span class="icononly" title="Administration"><span class="fas fa-gear"></span></span>
+        <span class="label"><span class="fas fa-gear"/>&nbsp;Administration</span>
+        <span class="icononly" title="Administration"><span class="fas fa-gear"/></span>
       </li>
     </ul>
   </nav>

@@ -4,7 +4,7 @@
     <div id="demo-page">
       <DemoClient/>
       <div v-if="error" id="demo-error" class="alert alert-danger" v-text="error"/>
-      <div id="demo-loading"><span class="fas fa-spinner"></span> Loading...</div>
+      <div id="demo-loading"><span class="fas fa-spinner"/> Loading...</div>
       <DemoProducts/>
       <DemoOrder/>
       <DemoOrders/>

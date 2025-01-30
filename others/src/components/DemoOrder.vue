@@ -1,7 +1,7 @@
 <template>
   <div v-show="client.row_id && menu.current == 'order'" id="demo-order" class="card">
     <div class="card-body">
-      <h3 class="card-title"><span class="fas fa-cart-shopping"></span>&nbsp;Place order</h3>
+      <h3 class="card-title"><span class="fas fa-cart-shopping"/>&nbsp;Place order</h3>
       <div class="row">
         <div class="col-sm-5 order">
           <img v-if="product.demoPrdPicture" :alt="product.demoPrdReference" :src="'data:' + product.demoPrdPicture.mime + ';base64,' + product.demoPrdPicture.content">
@@ -11,7 +11,7 @@
           <div v-if="order.row_id == '0'" class="input-group">
             <input v-model="quantity" type="text" class="form-control" placeholder="Quantity">
             <div class="input-group-append">
-              <button class="btn btn-primary" @click="placeOrder"><span class="fas fa-check"></span>&nbsp;Order</button>
+              <button class="btn btn-primary" @click="placeOrder"><span class="fas fa-check"/>&nbsp;Order</button>
             </div>
           </div>
           <div v-if="!error && order.row_id != '0'" class="alert alert-info">
@@ -20,7 +20,7 @@
         </div>
         <div class="col-sm-7 doc">
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="card-text" v-html="product.demoPrdDocumentation"></div>
+          <div class="card-text" v-html="product.demoPrdDocumentation"/>
         </div>
       </div>
     </div>
