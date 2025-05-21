@@ -1,7 +1,7 @@
 {
   "name": "demo-staticstite",
   "description": "Vue.js static site frontend for the demo application",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "author": "Simplicite Software <contact@simplicitesoftware.com> (http://www.simplicitesoftware.com/)",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "bootstrap": "5.3.6",
     "core-js": "3.42.0",
     "jquery": "3.7.1",
-    "simplicite": "3.0.3",
+    "simplicite": "3.1.3",
     "vue": "3.5.14",
     "vuex": "4.1.0"
   },
@@ -39,8 +39,8 @@
   },
   "scripts": {
     "ncu": "ncu",
-    "eslint": "eslint *.mjs src/**/*.js src/**/*.vue",
-    "stylelint": "stylelint src/**/*.vue",
+    "eslint": "eslint --fix \"*.mjs\" \"src/**/*.js\" \"src/**/*.vue\"",
+    "stylelint": "stylelint --fix \"src/**/*.vue\"",
     "lint": "npm run eslint && npm run stylelint",
     "start": "vite --mode development",
     "build": "npm run lint && vite --mode production build && rm -f ../resources/ObjectExternal/DemoStaticSite/SITE.zip && cd dist && jszip-cli add --ignore *.LICENSE.txt --output ../../resources/ObjectExternal/DemoStaticSite/SITE.zip .",
