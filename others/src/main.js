@@ -61,9 +61,9 @@ const store = createStore({
   mutations: {
     error(state, e) {
       app.error(e);
-      if (e.status || e.level) {
+      if (e.status || e.level)
         state.error = e.messages ? e.messages.join('<br/>') : e.message;
-      } else
+      else
         state.error = 'Network not available, please retry later...';
     },
     selectMenu(state, name) {
@@ -241,5 +241,6 @@ const store = createStore({
     vueApp.mount('body');
   } catch (e) {
     app.error(e);
+    document.getElementById('app').innerHTML = `<div class="alert alert-danger m-3">Initialization error: ${e.message}</div>`;
   }
 })();
