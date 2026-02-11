@@ -9,12 +9,12 @@
   },
   "type": "module",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "7.1.0",
+    "@fortawesome/fontawesome-free": "7.2.0",
     "bootstrap": "5.3.8",
     "core-js": "3.48.0",
     "jquery": "4.0.0",
     "simplicite": "3.1.4",
-    "vue": "3.5.27",
+    "vue": "3.5.28",
     "vuex": "4.1.0"
   },
   "devDependencies": {
@@ -25,11 +25,11 @@
     "eslint-plugin-vue": "9.33.0",
     "globals": "17.3.0",
     "less": "4.5.1",
-    "less-loader": "12.3.0",
+    "less-loader": "12.3.1",
     "npm-check-updates": "19.3.2",
     "postcss-less": "6.0.0",
     "vite": "7.3.1",
-    "stylelint": "17.1.1",
+    "stylelint": "17.2.0",
     "stylelint-config-recommended-vue": "1.6.1",
     "stylelint-config-standard": "40.0.0",
     "vite-plugin-vue-devtools": "8.0.6"
