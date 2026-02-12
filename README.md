@@ -11,17 +11,20 @@
 `DemoStaticSite` module definition
 ==================================
 
-### Introduction
+Introduction
+------------
 
 This module contains a custom static public frontend for the order management demo.
 
 The frontend itself is a [Vue.js](Vue.js) applications located in the `others` folder.
 
-### Prerequisites
+Prerequisites
+-------------
 
 The `Demo` module **must** be installed and configured before importing this addon module.
 
-### Import
+Import
+------
 
 To import this module:
 
@@ -39,7 +42,8 @@ To import this module:
 
 - Click on the _Import module_ button
 
-### Configuration
+Configuration
+-------------
 
 You can make it the public page by adding this mapping to the `URI_MAPPINGS` system parameter:
 
