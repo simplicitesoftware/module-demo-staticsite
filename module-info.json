@@ -1,9 +1,11 @@
 {
-    "date": "2026-02-12 22:11:32",
+    "date": "2026-07-22 17:37:17",
     "name": "DemoStaticSite",
+    "platform_revision": "5.3.92-preview",
     "format": "xml",
     "files": ["DemoStaticSite.xml"],
     "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-demo-staticsite.git"}},
     "version": "5",
-    "platform": "5.3.84"
+    "branch": "master",
+    "platform": "5.3"
 }
